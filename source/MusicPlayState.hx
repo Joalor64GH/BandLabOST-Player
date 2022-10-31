@@ -1,4 +1,4 @@
-package states;
+package;
 
 import util.Paths;
 import flixel.FlxG;
