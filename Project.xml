@@ -4,7 +4,7 @@
 
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="BandLab OST Player" main="Main" version="1.0.0-git" company="Joalor64GH" />
+	<app title="BandLab OST Player" main="Main" version="1.0.0" company="Joalor64GH" />
 	<app file="OSTPlayer_WIN" if="windows" />
 	<app file="OSTPlayer_APP" if="linux" />
 	<app file="OSTPlayer_MAC" if="mac" />
