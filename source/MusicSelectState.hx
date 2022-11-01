@@ -18,7 +18,7 @@ class MusicSelectState extends FlxState
 
 		// Create menu
 		Menu.title = "Song Selector";
-		Menu.options = ['Nighttime Gaming', 'Relaxing Evening Lo-Fi', 'GBA Cliche', 'Dreamy Lo-Fi Beats', 'Arcadia Mania', 'Creepy Ol Forest', 'Untitled Lo-Fi Song'];
+		Menu.options = ['Nighttime Gaming', 'Relaxing Evening Lo-Fi', 'GBA Cliche', 'Dreamy Lo-Fi Beats', 'Arcadia Mania', 'Creepy Ol Forest', 'Untitled Lo-Fi Song', 'Back'];
 		Menu.includeExitBtn = false;
 		Menu.callback = (option:MenuSelection) ->
 		{
