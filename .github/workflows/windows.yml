@@ -31,11 +31,12 @@ jobs:
           haxelib setup C:/haxelib
           haxelib install lime
           haxelib install openfl
-          haxelib install flixel
+          haxelib install --never flixel
           haxelib run lime setup flixel
           haxelib run lime setup
           haxelib install flixel-ui
           haxelib install flixel-addons
+          haxelib install flixel-tools
           haxelib list
         shell: cmd
       - name: Create Version Tag
