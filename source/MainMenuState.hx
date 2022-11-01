@@ -18,7 +18,7 @@ class MainMenuState extends FlxState
 
 		// Create menu
 		Menu.title = "Bandlab OST Player";
-		Menu.options = ['Select Song', 'Exit'];
+		Menu.options = ['Select Song', 'Instructions', 'Exit'];
 		Menu.includeExitBtn = false;
 		Menu.callback = (option:MenuSelection) ->
 		{
@@ -30,6 +30,9 @@ class MainMenuState extends FlxState
 					trace('Select Song');
 					FlxG.switchState(new MusicSelectState());
 				case 1:
+					trace('Instructions');
+					FlxG.switchState(new InstructionsState());
+				case 2:
 					trace('Exit');
 					#if (windows || cpp)
 					Sys.exit(0);

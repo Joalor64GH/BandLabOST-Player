@@ -27,7 +27,7 @@ class RELFState extends FlxState
     {
         super.update(elapsed);
 
-        if (FlxG.keys.justPressed.ANY)
+        if (FlxG.keys.justPressed.ESCAPE)
 	{
 		FlxG.switchState(new MainMenuState());
 	}
