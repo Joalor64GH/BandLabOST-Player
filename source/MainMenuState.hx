@@ -19,7 +19,6 @@ class MainMenuState extends FlxState
 		// Create menu
 		Menu.title = "Bandlab OST Player";
 		Menu.options = ['Select Song', 'Exit'];
-		#end
 		Menu.includeExitBtn = false;
 		Menu.callback = (option:MenuSelection) ->
 		{
