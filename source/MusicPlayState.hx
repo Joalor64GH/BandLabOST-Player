@@ -15,7 +15,7 @@ class MusicPlayState extends FlxState
     {
 		super.create();
 
-                DisplayText = new FlxText(0, 0, FlxG.width, "This is unfinished.", 32);
+                DisplayText = new FlxText(0, 0, FlxG.width, "This is unused.", 32);
 		DisplayText.setFormat(Paths.font("vcr.ttf"), 54, FlxColor.WHITE, FlxTextAlign.CENTER,FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 
 		add(DisplayText);

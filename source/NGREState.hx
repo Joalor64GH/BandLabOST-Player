@@ -15,10 +15,12 @@ class NGREState extends FlxState
     {
 		super.create();
 
-                DisplayText = new FlxText(0, 0, FlxG.width, "This is unfinished.", 32);
+                DisplayText = new FlxText(0, 0, FlxG.width, "NOW PLAYING:\nNighttime Gaming REMIX", 32);
 		DisplayText.setFormat(Paths.font("vcr.ttf"), 54, FlxColor.WHITE, FlxTextAlign.CENTER,FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 
 		add(DisplayText);
+
+    FlxG.sound.playMusic(Paths.music('Nighttime_Gaming_REMIX'), 1);
     }
 
     override public function update(elapsed:Float)
