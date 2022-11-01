@@ -12,10 +12,10 @@ class MusicPlayState extends FlxState
     public var DisplayText:FlxText;
 
     override function create()
-	{
+    {
 		super.create();
 
-        DisplayText = new FlxText(0, 0, FlxG.width, "This is unfinished.", 32);
+                DisplayText = new FlxText(0, 0, FlxG.width, "This is unfinished.", 32);
 		DisplayText.setFormat(Paths.font("vcr.ttf"), 54, FlxColor.WHITE, FlxTextAlign.CENTER,FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 
 		add(DisplayText);
@@ -26,8 +26,8 @@ class MusicPlayState extends FlxState
         super.update(elapsed);
 
         if (FlxG.keys.justPressed.ANY)
-		{
-			FlxG.switchState(new MainMenuState());
-		}
+	{
+		FlxG.switchState(new MainMenuState());
+	}
     }
 }
