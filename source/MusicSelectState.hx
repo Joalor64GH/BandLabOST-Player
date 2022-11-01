@@ -2,7 +2,7 @@ package;
 
 import flixel.FlxG;
 import flixel.FlxState;
-import util.Menu.MenuSelection;
+import Menu.MenuSelection;
 import flixel.FlxState;
 import flixel.util.FlxColor;
 import haxe.Log;

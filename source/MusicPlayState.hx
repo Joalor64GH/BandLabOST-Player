@@ -1,12 +1,12 @@
 package;
 
-import util.Paths;
+import Paths;
 import flixel.FlxG;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.FlxState;
 
-class PlayState extends FlxState
+class MusicPlayState extends FlxState
 {
     public var DisplayText:FlxText;
 

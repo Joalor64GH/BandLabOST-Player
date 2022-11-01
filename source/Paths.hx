@@ -1,4 +1,4 @@
-package util;
+package;
 
 import openfl.utils.Assets as OpenFlAssets;
 
