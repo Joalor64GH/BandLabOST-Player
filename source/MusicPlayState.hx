@@ -2,7 +2,7 @@ package;
 
 import Paths;
 import flixel.FlxG;
-import flixel.FlxColor;
+import flixel.util.FlxColor;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.FlxState;
@@ -11,9 +11,9 @@ class MusicPlayState extends FlxState
 {
     public var DisplayText:FlxText;
 
-    public function new(str:String)
+    override function create()
 	{
-		super();
+		super.create();
 
         DisplayText = new FlxText(0, 0, FlxG.width, "This is unfinished.", 32);
 		DisplayText.setFormat(Paths.font("vcr.ttf"), 54, FlxColor.WHITE, FlxTextAlign.CENTER,FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
