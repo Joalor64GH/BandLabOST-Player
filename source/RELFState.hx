@@ -30,6 +30,7 @@ class RELFState extends FlxState
         if (FlxG.keys.justPressed.ESCAPE)
 	{
 		FlxG.switchState(new MainMenuState());
+    FlxG.sound.music.volume = 0;
 	}
     }
 }

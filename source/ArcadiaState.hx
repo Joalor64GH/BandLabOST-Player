@@ -30,7 +30,7 @@ class ArcadiaState extends FlxState
         if (FlxG.keys.justPressed.ESCAPE)
 	{
 		FlxG.switchState(new MainMenuState());
-    FlxG.sound.changeVolume(0.0); 
+    FlxG.sound.music.volume = 0;
 	}
     }
 }
