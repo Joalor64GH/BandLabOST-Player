@@ -1,3 +1,3 @@
 # BandLab OST Player
 
-i forgor
+The name says it all.
