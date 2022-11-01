@@ -33,7 +33,7 @@ class NGSubState extends FlxSubState
 				case 1:
 					trace('Remix');
 					FlxG.switchState(new NGREState());
-                case 2:
+                                case 2:
 					trace('Back');
 					FlxG.switchState(new MusicSelectState());
 				default:
