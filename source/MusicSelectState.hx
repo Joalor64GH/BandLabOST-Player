@@ -8,7 +8,7 @@ import flixel.util.FlxColor;
 import haxe.Log;
 import lime.app.Application;
 
-class MainMenuState extends FlxState
+class MusicSelectState extends FlxState
 {
 	var substateColor:FlxColor;
 
