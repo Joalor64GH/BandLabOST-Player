@@ -37,6 +37,7 @@ jobs:
           haxelib install flixel-ui
           haxelib install flixel-addons
           haxelib install flixel-tools
+          haxelib install polymod
           haxelib list
         shell: cmd
       - name: Create Version Tag
