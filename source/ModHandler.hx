@@ -14,7 +14,7 @@ class ModHandler
 	public static function reloadMods()
 	{
 		#if desktop
-        polymod.PolymodConfig.modMetadataFile = "_polymod_meta.json";
+                polymod.PolymodConfig.modMetadataFile = "_polymod_meta.json";
 
 		mod_dirs = [];
 
@@ -23,11 +23,11 @@ class ModHandler
 			mod_dirs.push(meta.id);
 		}
 
-            mod_dirs = [];
+                mod_dirs = [];
 
-        var parse_rules:ParseRules = ParseRules.getDefault();
+                var parse_rules:ParseRules = ParseRules.getDefault();
 
-        polymod.Polymod.init({
+                polymod.Polymod.init({
 			modRoot: "mods",
 			dirs: mod_dirs,
 			framework: OPENFL,
@@ -39,12 +39,12 @@ class ModHandler
 				assetLibraryPaths: [
 					"data" => "data",
 					"fonts" => "fonts",
-                    "images" => "images",
+                                        "images" => "images",
 					"music" => "music",
 					"sounds" => "sounds"
 				]
 			},
-            parseRules: parse_rules
+                parseRules: parse_rules
 		});
 		#end
 	}
