@@ -18,7 +18,7 @@ class Main extends Sprite
 	{
 		super();
 
-        ModHandler.reloadMods();
+            ModHandler.reloadMods();
 
 		addChild(new FlxGame(0, 0, MainMenuState));
 	}

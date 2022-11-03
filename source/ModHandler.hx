@@ -26,7 +26,6 @@ class ModHandler
             mod_dirs = [];
 
         var parse_rules:ParseRules = ParseRules.getDefault();
-        parse_rules.addFormat("json", new JsonLoaderFuni());
 
         polymod.Polymod.init({
 			modRoot: "mods",
