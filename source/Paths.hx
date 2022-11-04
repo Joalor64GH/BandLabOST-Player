@@ -52,7 +52,7 @@ class Paths
 
 	inline static public function font(key:String)
 	{
-		return file('fonts/$key');
+		return file('assets/fonts/$key');
 	}
 
 	inline static public function getSparrowAtlas(key:String)

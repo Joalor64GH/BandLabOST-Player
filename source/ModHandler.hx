@@ -5,7 +5,7 @@ import polymod.format.ParseRules;
 #end
 
 /**
-    Author: @MemeHoovy
+    Class for loading mods with 'Polymod'.
 **/
 class ModHandler
 {
