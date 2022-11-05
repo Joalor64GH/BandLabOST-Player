@@ -5,6 +5,7 @@ import flixel.text.FlxText;
 import openfl.display.Sprite;
 import openfl.display.FPS;
 import openfl.Lib;
+import lime.app.Application;
 
 class Main extends Sprite
 {
@@ -14,14 +15,14 @@ class Main extends Sprite
 	var framerate:Int = 60; // How many frames per second the game should run at.
 	var skipSplash:Bool = false;
 	var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets'
-	var versionText:FlxText;
+	var versionText:FlxText; // The version being displayed.
 	
 	// You can pretty much ignore everything from here on - your code should go in your states.
 	
 	public function new()
 	{
-        versionText = new FlxText(0,0,0,"Version: v" + Application.current.meta.get("version"),12);
-        add(versionText);
+                versionText = new FlxText(0,0,0,"Version: v" + Application.current.meta.get("version"),12);
+                add(versionText);
 
 		super();
 
