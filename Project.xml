@@ -75,6 +75,8 @@
 	<!-- Use defines to configure the behavior of Polymod. -->
 	<haxedef name="POLYMOD_MOD_METADATA_FILE" value="_polymod_meta.json" />
 	<haxedef name="POLYMOD_DEBUG" if="debug" />
+
+    <!-- Support for Polymod 1.5.3+ -->
 	<haxedef name="hscriptPos" value="true" />
 
 	<!-- _________________________________ Custom _______________________________ -->

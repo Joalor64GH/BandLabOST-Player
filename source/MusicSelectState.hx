@@ -5,6 +5,7 @@ import flixel.FlxState;
 import Menu.MenuSelection;
 import flixel.FlxState;
 import flixel.util.FlxColor;
+import flixel.FlxSprite;
 import haxe.Log;
 import lime.app.Application;
 
@@ -58,6 +59,15 @@ class MusicSelectState extends FlxState
 		FlxG.switchState(new Menu(substateColor.setRGB(0, 0, 0, 125)));
 
 		super.create();
+
+		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
+		bg.scrollFactor.x = 0;
+		bg.scrollFactor.y = 0.18;
+		bg.setGraphicSize(Std.int(bg.width * 1.1));
+		bg.updateHitbox();
+		bg.screenCenter();
+		bg.antialiasing = true;
+		add(bg);
 	}
 
 	override public function update(elapsed:Float)
