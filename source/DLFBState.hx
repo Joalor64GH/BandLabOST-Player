@@ -16,7 +16,7 @@ class DLFBState extends FlxState
     {
 		super.create();
 
-    var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('backgrounds/dreamylofibeats'));
+            var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('backgrounds/dreamylofibeats'));
 		bg.scrollFactor.x = 0;
 		bg.scrollFactor.y = 0.18;
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
