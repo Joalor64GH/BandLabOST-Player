@@ -3,7 +3,6 @@ package;
 import flixel.FlxG;
 import flixel.FlxState;
 import Menu.MenuSelection;
-import flixel.FlxSprite;
 import flixel.util.FlxColor;
 import haxe.Log;
 import lime.app.Application;
@@ -47,15 +46,6 @@ class MainMenuState extends FlxState
 		FlxG.switchState(new Menu(substateColor.setRGB(0, 0, 0, 125)));
 
 		super.create();
-
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('titleBG'));
-		bg.scrollFactor.x = 0;
-		bg.scrollFactor.y = 0.18;
-		bg.setGraphicSize(Std.int(bg.width * 1.1));
-		bg.updateHitbox();
-		bg.screenCenter();
-		bg.antialiasing = true;
-		add(bg);
 	}
 
 	override public function update(elapsed:Float)
