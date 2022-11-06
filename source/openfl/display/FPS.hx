@@ -88,7 +88,7 @@ class FPS extends TextField
 		var currentCount = times.length;
 		currentFPS = Math.round((currentCount + cacheCount) / 2);
 
-		if (currentCount != cacheCount && visible)
+		if (currentCount != cacheCount /*&& visible*/)
 		{
 			text = "FPS: " + currentFPS + "\nMemory: " + mem + " MB" + "\nVersion: v" + Application.current.meta.get("version");
 
