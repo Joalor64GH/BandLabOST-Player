@@ -16,7 +16,7 @@ class MainMenuState extends FlxState
 		substateColor = new FlxColor();
 
 		// Create menu
-		Menu.title = "Bandlab OST Player";
+		Menu.title = "BandLab OST Player";
 		Menu.options = ['Select Song', 'Instructions', 'Exit'];
 		Menu.includeExitBtn = false;
 		Menu.callback = (option:MenuSelection) ->
