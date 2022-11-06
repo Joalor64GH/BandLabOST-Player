@@ -7,3 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2022-11-1
 ### Added
 * The initial release.
+
+## [1.1.0] - 2022-11-6
+### Added
+* Backgrounds for all Music States + Instructions State
+* Modding Support (for some reason)
+* A Library in the Files
+* FPS + Version Text
