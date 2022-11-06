@@ -12,19 +12,11 @@ import openfl.display._internal.stats.DrawCallContext;
 import openfl.Lib;
 #end
 import lime.app.Application;
-import flixel.math.FlxMath;
-import openfl.system.System;
-import openfl.Memory;
 
 /**
 	The FPS class provides an easy-to-use monitor to display
 	the current frame rate of an OpenFL project
 **/
-
-/**
- * FPS class extension to display memory usage.
- * @author Kirill Poletaev
- */
 #if !openfl_debug
 @:fileXml('tags="haxe,release"')
 @:noDebug
@@ -32,17 +24,15 @@ import openfl.Memory;
 class FPS extends TextField
 {
 	/**
-		The current frame rate, expressed using frames-per-second, and memory usage
+		The current frame rate, expressed using frames-per-second
 	**/
 	public var currentFPS(default, null):Int;
-
-	private var memPeak:Float = 0;
 
 	@:noCompletion private var cacheCount:Int;
 	@:noCompletion private var currentTime:Float;
 	@:noCompletion private var times:Array<Float>;
 
-	public function new(inX:Float = 10.0, inY:Float = 10.0, inCol:Int = 0x000000)
+	public function new(x:Float = 10, y:Float = 10, color:Int = 0x000000)
 	{
 		super();
 
@@ -52,21 +42,20 @@ class FPS extends TextField
 		currentFPS = 0;
 		selectable = false;
 		mouseEnabled = false;
-		defaultTextFormat = new TextFormat("_sans", 14, inCol);
+		defaultTextFormat = new TextFormat("_sans", 14, color);
 		text = "FPS: ";
 
 		cacheCount = 0;
 		currentTime = 0;
 		times = [];
 
-		x = inX;
-		y = inY;
-
+		#if flash
 		addEventListener(Event.ENTER_FRAME, function(e)
 		{
 			var time = Lib.getTimer();
 			__enterFrame(time - currentTime);
 		});
+		#end
 	}
 
 	// Event Handlers
@@ -81,16 +70,12 @@ class FPS extends TextField
 			times.shift();
 		}
 
-		var mem:Float = Math.round(System.totalMemory / 1024 / 1024 * 100) / 100;
-		if (mem > memPeak)
-			memPeak = mem;
-
 		var currentCount = times.length;
 		currentFPS = Math.round((currentCount + cacheCount) / 2);
 
 		if (currentCount != cacheCount /*&& visible*/)
 		{
-			text = "FPS: " + currentFPS + "\nMemory: " + mem + " MB" + "\nVersion: v" + Application.current.meta.get("version");
+			text = "FPS: " + currentFPS + "\nVersion: v" + Application.current.meta.get("version");
 
 			#if (gl_stats && !disable_cffi && (!html5 || !canvas))
 			text += "\ntotalDC: " + Context3DStats.totalDrawCalls();
