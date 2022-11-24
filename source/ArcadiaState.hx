@@ -30,7 +30,7 @@ class ArcadiaState extends FlxState
 
 		add(DisplayText);
 
-    FlxG.sound.playMusic(Paths.music('Arcadia_Mania'), 1);
+                FlxG.sound.playMusic(Paths.music('Arcadia_Mania'), 1);
     }
 
     override public function update(elapsed:Float)
@@ -40,7 +40,7 @@ class ArcadiaState extends FlxState
         if (FlxG.keys.justPressed.ESCAPE)
 	{
 		FlxG.switchState(new MainMenuState());
-    FlxG.sound.music.volume = 0;
+                FlxG.sound.music.volume = 0;
 	}
     }
 }
