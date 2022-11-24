@@ -30,7 +30,7 @@ class NGState extends FlxState
 
 		add(DisplayText);
 
-    FlxG.sound.playMusic(Paths.music('Nighttime_Gaming'), 1);
+                FlxG.sound.playMusic(Paths.music('Nighttime_Gaming'), 1);
     }
 
     override public function update(elapsed:Float)
