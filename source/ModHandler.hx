@@ -9,7 +9,7 @@ import polymod.format.ParseRules;
 **/
 class ModHandler
 {
-    public static var mod_dirs:Array<String> = [];
+        public static var mod_dirs:Array<String> = [];
 
 	public static function reloadMods()
 	{
