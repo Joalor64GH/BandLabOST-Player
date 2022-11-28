@@ -5,7 +5,7 @@ import polymod.format.ParseRules;
 #end
 
 /**
-    Class for loading mods with 'Polymod'.
+	Class for loading mods with `Polymod`.
 **/
 class ModHandler
 {
@@ -44,7 +44,7 @@ class ModHandler
 					"sounds" => "sounds"
 				]
 			},
-                parseRules: parse_rules
+                        parseRules: parse_rules
 		});
 		#end
 	}
