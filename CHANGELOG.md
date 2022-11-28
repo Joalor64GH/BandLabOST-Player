@@ -14,3 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Modding Support (for some reason)
 * A Library in the Files
 * FPS + Version Text
+
+## [1.1.1] - 2022-11-28
+### Added
+* Formatted all Haxe Files
+* Custom Flixel Splash
