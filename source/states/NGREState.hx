@@ -1,4 +1,4 @@
-package;
+package states;
 
 import Paths;
 import flixel.FlxG;
@@ -7,6 +7,7 @@ import flixel.util.FlxColor;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.FlxState;
+import states.*;
 
 class NGREState extends FlxState
 {

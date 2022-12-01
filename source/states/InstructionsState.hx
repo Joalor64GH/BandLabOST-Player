@@ -1,14 +1,14 @@
-package;
+package states;
 
-import Paths;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxColor;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.FlxState;
+import states.*;
 
-class GBAState extends FlxState
+class InstructionsState extends FlxState
 {
     public var DisplayText:FlxText;
 
@@ -16,7 +16,7 @@ class GBAState extends FlxState
     {
 		super.create();
 
-                var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('backgrounds/gbacliche'));
+                var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
 		bg.scrollFactor.x = 0;
 		bg.scrollFactor.y = 0.18;
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
@@ -25,12 +25,10 @@ class GBAState extends FlxState
 		bg.antialiasing = true;
 		add(bg);
 
-                DisplayText = new FlxText(0, 0, FlxG.width, "NOW PLAYING:\nGBA Cliche", 32);
+                DisplayText = new FlxText(0, 0, FlxG.width, "Use the UP and DOWN keys to\nnavigate through the menus.\nChoose a song to listen to it.\nWhen you are done listening,\npress ESC to go back.", 32);
 		DisplayText.setFormat(Paths.font("vcr.ttf"), 54, FlxColor.WHITE, FlxTextAlign.CENTER,FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 
 		add(DisplayText);
-
-                FlxG.sound.playMusic(Paths.music('GBA_Cliche'), 1);
     }
 
     override public function update(elapsed:Float)
@@ -40,7 +38,6 @@ class GBAState extends FlxState
         if (FlxG.keys.justPressed.ESCAPE)
 	{
 		FlxG.switchState(new MainMenuState());
-                FlxG.sound.music.volume = 0;
 	}
     }
 }

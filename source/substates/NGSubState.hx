@@ -1,12 +1,13 @@
-package;
+package substates;
 
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.FlxSubState;
-import Menu.MenuSelection;
+import util.Menu;
 import flixel.util.FlxColor;
 import haxe.Log;
 import lime.app.Application;
+import states.*;
 
 class NGSubState extends FlxSubState
 {

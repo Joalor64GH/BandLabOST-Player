@@ -1,11 +1,12 @@
-package;
+package states;
 
 import flixel.FlxG;
 import flixel.FlxState;
-import Menu.MenuSelection;
+import util.Menu;
 import flixel.util.FlxColor;
 import haxe.Log;
 import lime.app.Application;
+import states.*;
 
 class MainMenuState extends FlxState
 {

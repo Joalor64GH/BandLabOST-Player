@@ -1,4 +1,4 @@
-package;
+package states;
 
 import Paths;
 import flixel.FlxG;
@@ -7,8 +7,9 @@ import flixel.util.FlxColor;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.FlxState;
+import states.*;
 
-class NGState extends FlxState
+class GBAState extends FlxState
 {
     public var DisplayText:FlxText;
 
@@ -16,7 +17,7 @@ class NGState extends FlxState
     {
 		super.create();
 
-                var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('backgrounds/nighttimegaming'));
+                var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('backgrounds/gbacliche'));
 		bg.scrollFactor.x = 0;
 		bg.scrollFactor.y = 0.18;
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
@@ -25,12 +26,12 @@ class NGState extends FlxState
 		bg.antialiasing = true;
 		add(bg);
 
-                DisplayText = new FlxText(0, 0, FlxG.width, "NOW PLAYING:\nNighttime Gaming", 32);
+                DisplayText = new FlxText(0, 0, FlxG.width, "NOW PLAYING:\nGBA Cliche", 32);
 		DisplayText.setFormat(Paths.font("vcr.ttf"), 54, FlxColor.WHITE, FlxTextAlign.CENTER,FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 
 		add(DisplayText);
 
-                FlxG.sound.playMusic(Paths.music('Nighttime_Gaming'), 1);
+                FlxG.sound.playMusic(Paths.music('GBA_Cliche'), 1);
     }
 
     override public function update(elapsed:Float)
