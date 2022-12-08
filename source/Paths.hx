@@ -4,10 +4,6 @@ import openfl.utils.Assets as OpenFlAssets;
 
 import flixel.FlxG;
 import flixel.graphics.frames.FlxAtlasFrames;
-#if sys
-import sys.io.File;
-import sys.FileSystem;
-#end
 
 class Paths
 {

@@ -14,7 +14,7 @@ typedef ModJson =
 	var contributors:String;
 	var api_version:String;
 	var mod_version:String;
-    var license:String;
+        var license:String;
 }
 
 class ModSupport
