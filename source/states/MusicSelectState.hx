@@ -19,7 +19,18 @@ class MusicSelectState extends FlxState
 
 		// Create menu
 		Menu.title = "Song Selector";
-		Menu.options = ['Nighttime Gaming', 'Relaxing Evening Lo-Fi', 'GBA Cliche', 'Dreamy Lo-Fi Beats', 'Arcadia Mania', 'Creepy Ol Forest', 'Untitled Lo-Fi Song', 'Back'];
+		Menu.options = [
+			'Nighttime Gaming', 
+			'Relaxing Evening Lo-Fi', 
+			'GBA Cliche', 
+			'Dreamy Lo-Fi Beats', 
+			'Arcadia Mania', 
+			'Creepy Ol Forest', 
+			'Untitled Lo-Fi Song', 
+			'Pure Indian Vibes', 
+			'Game Development', 
+			'Back'
+		];
 		Menu.includeExitBtn = false;
 		Menu.callback = (option:MenuSelection) ->
 		{
@@ -49,6 +60,12 @@ class MusicSelectState extends FlxState
 					trace('Untitled Lo-Fi Song');
                                         FlxG.switchState(new ULFSState());
 				case 7:
+					trace('Pure Indian Vibes');
+                                        FlxG.switchState(new PIVState());
+				case 8:
+					trace('Game Development');
+                                        FlxG.switchState(new GDState());
+				case 9:
 					trace('Back');
                                         FlxG.switchState(new MainMenuState());
 				default:

@@ -19,7 +19,11 @@ class NGSubState extends FlxSubState
 
 		// Create menu
 		Menu.title = "Good choice, but first...";
-		Menu.options = ['Original', 'Remix', 'Back'];
+		Menu.options = [
+			'Original', 
+			'Remix', 
+			'Back'
+		];
 		Menu.includeExitBtn = false;
 		Menu.callback = (option:MenuSelection) ->
 		{

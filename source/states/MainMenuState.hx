@@ -18,7 +18,11 @@ class MainMenuState extends FlxState
 
 		// Create menu
 		Menu.title = "BandLab OST Player";
-		Menu.options = ['Select Song', 'Instructions', 'Exit'];
+		Menu.options = [
+			'Select Song', 
+			'Instructions', 
+			'Exit'
+		];
 		Menu.includeExitBtn = false;
 		Menu.callback = (option:MenuSelection) ->
 		{
@@ -34,7 +38,7 @@ class MainMenuState extends FlxState
 					FlxG.switchState(new InstructionsState());
 				case 2:
 					trace('Exit');
-					#if (windows || cpp)
+					#if sys
 					Sys.exit(0);
 					#else
 					openfl.system.System.exit(0);
