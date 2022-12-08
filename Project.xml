@@ -47,7 +47,7 @@
 	<assets path="assets/fonts" embed='true'/>
 	<assets path="assets/" rename="assets" exclude="*.mp3"/>
 	<section if="MOD_SUPPORT">
-	    <assets path='example_mods' rename='mods' embed='false'/>
+	       <assets path='example_mods' rename='mods' embed='false'/>
 	<section>
 
 	<!-- _______________________________ Libraries ______________________________ -->
