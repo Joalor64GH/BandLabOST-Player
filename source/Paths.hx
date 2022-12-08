@@ -4,6 +4,10 @@ import openfl.utils.Assets as OpenFlAssets;
 
 import flixel.FlxG;
 import flixel.graphics.frames.FlxAtlasFrames;
+#if sys
+import sys.io.File;
+import sys.FileSystem;
+#end
 
 class Paths
 {
@@ -18,6 +22,11 @@ class Paths
 			return '$currentLevel:$path';
 
 		return path;
+	}
+
+	inline static public function fromModFolders(file:String)
+	{
+		return 'mods/$file';
 	}
 	
 	inline static public function txt(key:String)

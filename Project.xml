@@ -33,6 +33,10 @@
 	<!--Mobile-->
 	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" />
 
+	<!-- _______________________________ Custom Defines ______________________________ -->
+
+	<define name='MOD_SUPPORT' if='desktop'/>
+
 	<!-- _____________________________ Path Settings ____________________________ -->
 
 	<set name="BUILD_DIR" value="export/debug" if="debug" />
@@ -42,7 +46,9 @@
 
 	<assets path="assets/fonts" embed='true'/>
 	<assets path="assets/" rename="assets" exclude="*.mp3"/>
-	<assets path='example_mods' rename='mods' embed='false'/>
+	<section if="MOD_SUPPORT">
+	    <assets path='example_mods' rename='mods' embed='false'/>
+	<section>
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
@@ -54,7 +60,7 @@
 	<!--In case you want to use the ui package-->
 	<haxelib name="flixel-ui" />
 	<haxelib name="flixel-tools" />
-	<haxelib name="polymod" />
+	<haxelib name="polymod" if="MOD_SUPPORT"/>
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
