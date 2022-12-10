@@ -87,6 +87,9 @@
 
         <!-- Support for Polymod 1.5.3+ -->
 	<haxedef name="hscriptPos" value="true" />
+	
+	<!-- No deprecation warnings. -->
+	<haxedef name="no-deprecation-warnings" />
 
 	<!-- _________________________________ Custom _______________________________ -->
 
