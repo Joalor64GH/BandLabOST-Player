@@ -66,6 +66,9 @@ class MusicSelectState extends FlxState
 					trace('Game Development');
                                         FlxG.switchState(new GDState());
 				case 9:
+				    trace('Silver Candy');
+                                        FlxG.switchState(new SCState());
+				case 10:
 					trace('Back');
                                         FlxG.switchState(new MainMenuState());
 				default:
