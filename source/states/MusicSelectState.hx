@@ -29,6 +29,7 @@ class MusicSelectState extends FlxState
 			'Untitled Lo-Fi Song', 
 			'Pure Indian Vibes', 
 			'Game Development', 
+			'Silver Candy',
 			'Back'
 		];
 		Menu.includeExitBtn = false;
