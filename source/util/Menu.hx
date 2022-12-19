@@ -40,6 +40,8 @@ class Menu extends FlxSubState
 
 	public override function create()
 	{
+        openfl.system.System.gc();
+
 		cb = callback.bind(_);
 
 		var titleT = new FlxText(20, 0, 0, title, 40, true);
@@ -79,7 +81,7 @@ class Menu extends FlxSubState
 	{
 		if (ready)
 		{
-			// Curser left/right bop thingy
+			// Cursor left/right bop thingy
 			cursor.x += Math.sin(uhhhh);
 			cursor.setGraphicSize(Std.int(cursor.width += Math.sin(uhhhh))); // very bad but works lmao
 			uhhhh += 0.1;
@@ -119,17 +121,17 @@ class Menu extends FlxSubState
 	}
 
 	// Arrow logic or smth
-	function moveArrowDown()
+	inline function moveArrowDown()
 	{
 		FlxTween.tween(cursor, {y: cursor.y + 40}, 0.2, {ease: FlxEase.quadInOut});
 	}
 
-	function moveArrowUp()
+	inline function moveArrowUp()
 	{
 		FlxTween.tween(cursor, {y: cursor.y - 40}, 0.2, {ease: FlxEase.quadInOut});
 	}
 
-	function flashArrow()
+	inline function flashArrow()
 	{
 		new FlxTimer().start(0.1, (timer:FlxTimer) ->
 		{
@@ -137,7 +139,7 @@ class Menu extends FlxSubState
 		}, 0);
 	}
 
-	function doAction(?timer:FlxTimer)
+	inline function doAction(?timer:FlxTimer)
 	{
 		trace("eugh");
 		if (includeExitBtn && currentOption == maxOptions)
@@ -151,7 +153,7 @@ class Menu extends FlxSubState
 		}
 	}
 
-	function splitText(returnOption:Int)
+	inline function splitText(returnOption:Int)
 	{
 		var tempArray = optionsT.text.trim().split('\n');
 
