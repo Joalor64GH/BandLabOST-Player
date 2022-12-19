@@ -15,7 +15,7 @@ class PIVState extends FlxState
 
     override function create()
     {
-        openfl.system.System.gc();
+                openfl.system.System.gc();
         
 		super.create();
 
