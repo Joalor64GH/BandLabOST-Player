@@ -15,6 +15,8 @@ class ULFSState extends FlxState
 
     override function create()
     {
+        openfl.system.System.gc();
+        
 		super.create();
 
                 var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('backgrounds/untitledlofisong'));
