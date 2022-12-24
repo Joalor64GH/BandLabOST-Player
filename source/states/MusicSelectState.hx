@@ -29,8 +29,8 @@ class MusicSelectState extends FlxState
 			'Untitled Lo-Fi Song', 
 			'Pure Indian Vibes', 
 			'Game Development', 
-			'Silver Candy',/*
-			'Christmas Wishes'*/
+			'Silver Candy',
+			'Christmas Wishes',
 			'Back'
 		];
 		Menu.includeExitBtn = false;
@@ -71,9 +71,9 @@ class MusicSelectState extends FlxState
 				    trace('Silver Candy');
                                         FlxG.switchState(new SCState());
 				case 10:
-				    /*trace('Christmas Wishes');
+				    trace('Christmas Wishes');
                                         FlxG.switchState(new CWState());
-				case 11:*/
+				case 11:
 					trace('Back');
                                         FlxG.switchState(new MainMenuState());
 				default:

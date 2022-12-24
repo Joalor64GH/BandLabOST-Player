@@ -14,6 +14,8 @@ class MainMenuState extends FlxState
 
 	override public function create()
 	{
+		// openfl.system.System.gc();
+		
 		substateColor = new FlxColor();
 
 		// Create menu
