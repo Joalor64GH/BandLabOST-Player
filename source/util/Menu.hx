@@ -40,7 +40,7 @@ class Menu extends FlxSubState
 
 	public override function create()
 	{
-        openfl.system.System.gc();
+            openfl.system.System.gc();
 
 		cb = callback.bind(_);
 
