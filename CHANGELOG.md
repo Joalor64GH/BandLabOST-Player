@@ -19,3 +19,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 * Formatted all Haxe Files
 * Custom Flixel Splash
+
+## [1.2.0] - 2022-12-25
+### Added
+* Reorganized the Source Code + Optimizations
+* Improved Modding Support a Little
+* Four New Songs
+* Extra Icon Sizes
+* Two New Library Files
