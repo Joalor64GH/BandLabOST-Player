@@ -34,11 +34,11 @@ class Paths
 	{
 		if(FileSystem.exists)
 		{
-            return fromModFolders('data/$key.txt');
+                        return fromModFolders('data/$key.txt');
 		}
 		else
 		{
-		    return file('data/$key.txt');
+		        return file('data/$key.txt');
 		}	
 	}
 
@@ -50,7 +50,7 @@ class Paths
 		}
 		else
 		{
-		    return file('data/$key.xml');
+		        return file('data/$key.xml');
 		}
 	}
 
@@ -62,7 +62,7 @@ class Paths
 		}
 		else
 		{
-            return file('sounds/$key.$SOUND_EXT');
+                        return file('sounds/$key.$SOUND_EXT');
 		}
 	}
 
@@ -70,11 +70,11 @@ class Paths
 	{
 		if(FileSystem.exists)
 		{
-            return fromModFolders('sounds/$key${FlxG.random.int(min, max)}.$SOUND_EXT');
+                        return fromModFolders('sounds/$key${FlxG.random.int(min, max)}.$SOUND_EXT');
 		}
 		else
 		{
-		    return file('sounds/$key${FlxG.random.int(min, max)}.$SOUND_EXT');
+		        return file('sounds/$key${FlxG.random.int(min, max)}.$SOUND_EXT');
 		}
 	}
 
@@ -82,7 +82,7 @@ class Paths
 	{
 		if(FileSystem.exists)
 		{
-		    return fromModFolders('music/$key.$SOUND_EXT');
+		        return fromModFolders('music/$key.$SOUND_EXT');
 		}
 		else
 		{
@@ -94,7 +94,7 @@ class Paths
 	{
 		if(FileSystem.exists)
 		{
-		    return fromModFolders('images/$key.png');
+		        return fromModFolders('images/$key.png');
 		}
 		else
 		{
@@ -106,11 +106,11 @@ class Paths
 	{
 		if (FileSystem.exists)
 		{
-            return fromModFolders('fonts/$key');
+                        return fromModFolders('fonts/$key');
 		}
 		else
 		{
-            return file('fonts/$key');
+                        return file('fonts/$key');
 		}
 	}
 
@@ -118,7 +118,7 @@ class Paths
 	{
 		if (FileSystem.exists)
 		{
-            return FlxAtlasFrames.fromSparrow(image(key), fromModFolders('images/$key.xml'));
+                        return FlxAtlasFrames.fromSparrow(image(key), fromModFolders('images/$key.xml'));
 		}
 		else
 		{
@@ -130,7 +130,7 @@ class Paths
 	{
 		if (FileSystem.exists)
 		{
-            return FlxAtlasFrames.fromSpriteSheetPacker(image(key), fromModFolders('images/$key.txt'));
+                        return FlxAtlasFrames.fromSpriteSheetPacker(image(key), fromModFolders('images/$key.txt'));
 		}
 		else
 		{
