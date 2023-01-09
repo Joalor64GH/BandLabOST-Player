@@ -32,9 +32,10 @@ class Paths
 	
 	inline static public function txt(key:String)
 	{
-		if(FileSystem.exists)
+		var path:String = fromModFolders(file);
+		if(FileSystem.exists(path))
 		{
-                        return fromModFolders('data/$key.txt');
+                        return path('data/$key.txt');
 		}
 		else
 		{
@@ -44,9 +45,10 @@ class Paths
 
         inline static public function xml(key:String)
 	{
-		if(FileSystem.exists)
+		var path:String = fromModFolders(file);
+		if(FileSystem.exists(path))
 		{
-			return fromModFolders('data/$key.xml');
+			return path('data/$key.xml');
 		}
 		else
 		{
@@ -56,9 +58,10 @@ class Paths
 
 	inline static public function sound(key:String)
 	{
-		if(FileSystem.exists)
+		var path:String = fromModFolders(file);
+		if(FileSystem.exists(path))
 		{
-			return fromModFolders('sounds/$key.$SOUND_EXT');
+			return path('sounds/$key.$SOUND_EXT');
 		}
 		else
 		{
@@ -68,9 +71,10 @@ class Paths
 
 	inline static public function soundRandom(key:String, min:Int, max:Int)
 	{
-		if(FileSystem.exists)
+		var path:String = fromModFolders(file);
+		if(FileSystem.exists(path))
 		{
-                        return fromModFolders('sounds/$key${FlxG.random.int(min, max)}.$SOUND_EXT');
+                        return path('sounds/$key${FlxG.random.int(min, max)}.$SOUND_EXT');
 		}
 		else
 		{
@@ -80,9 +84,10 @@ class Paths
 
 	inline static public function music(key:String)
 	{
-		if(FileSystem.exists)
+		var path:String = fromModFolders(file);
+		if(FileSystem.exists(path))
 		{
-		        return fromModFolders('music/$key.$SOUND_EXT');
+		        return path('music/$key.$SOUND_EXT');
 		}
 		else
 		{
@@ -92,9 +97,10 @@ class Paths
 
 	inline static public function image(key:String)
 	{
-		if(FileSystem.exists)
+		var path:String = fromModFolders(file);
+		if(FileSystem.exists(path))
 		{
-		        return fromModFolders('images/$key.png');
+		        return path('images/$key.png');
 		}
 		else
 		{
@@ -104,9 +110,10 @@ class Paths
 
 	inline static public function font(key:String)
 	{
-		if (FileSystem.exists)
+		var path:String = fromModFolders(file);
+		if(FileSystem.exists(path))
 		{
-                        return fromModFolders('fonts/$key');
+                        return path('fonts/$key');
 		}
 		else
 		{
@@ -116,7 +123,8 @@ class Paths
 
 	inline static public function getSparrowAtlas(key:String)
 	{
-		if (FileSystem.exists)
+		var path:String = fromModFolders(file);
+		if(FileSystem.exists(path))
 		{
                         return FlxAtlasFrames.fromSparrow(image(key), fromModFolders('images/$key.xml'));
 		}
@@ -128,7 +136,8 @@ class Paths
 
 	inline static public function getPackerAtlas(key:String)
 	{
-		if (FileSystem.exists)
+		var path:String = fromModFolders(file);
+		if(FileSystem.exists(path))
 		{
                         return FlxAtlasFrames.fromSpriteSheetPacker(image(key), fromModFolders('images/$key.txt'));
 		}
