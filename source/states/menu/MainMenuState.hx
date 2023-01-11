@@ -24,6 +24,7 @@ class MainMenuState extends FlxState
 		Menu.options = [
 			'Select Song', 
 			'Instructions', 
+			'Mod Loader',
 			'Exit'
 		];
 		Menu.includeExitBtn = false;
@@ -40,6 +41,9 @@ class MainMenuState extends FlxState
 					trace('Instructions');
 					FlxG.switchState(new InstructionsState());
 				case 2:
+				    trace('Mod Loader');
+					Main.toast.create('Warning!', 0xFFFFFF00, 'This menu hasn't been created yet!');
+				case 3:
 					trace('Exit');
 					#if sys
 					Sys.exit(0);
