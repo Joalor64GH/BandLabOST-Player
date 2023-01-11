@@ -1,6 +1,6 @@
-package;
+package classes;
 
-#if polymod
+#if (polymod && MOD_SUPPORT)
 import polymod.format.ParseRules;
 #end
 

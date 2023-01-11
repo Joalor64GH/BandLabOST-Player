@@ -1,4 +1,4 @@
-package states;
+package states.menu;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -6,6 +6,7 @@ import flixel.util.FlxColor;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 import flixel.FlxState;
+import states.menu.*;
 import states.*;
 
 class InstructionsState extends FlxState
