@@ -44,7 +44,7 @@ class MainMenuState extends FlxState
 					FlxG.switchState(new InstructionsState());
 				case 2:
 				    trace('Mod Loader');
-					Main.toast.create('Warning!', 0xFFFF0000, 'This menu hasn't been created yet!');
+					Main.toast.create('Warning!', 0xFFFFFF00, 'This menu is not finished yet!');
 				case 3:
 					trace('Exit');
 					#if sys
