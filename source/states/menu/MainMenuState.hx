@@ -6,6 +6,7 @@ import util.Menu;
 import flixel.util.FlxColor;
 import haxe.Log;
 import lime.app.Application;
+import core.ToastCore;
 import states.menu.*;
 import states.*;
 
