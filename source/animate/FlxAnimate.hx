@@ -9,6 +9,7 @@ import flixel.math.FlxRect;
 import haxe.Json;
 import openfl.Assets;
 import openfl.geom.Rectangle;
+import flixel.FlxG;
 
 using StringTools;
 
