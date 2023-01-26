@@ -48,7 +48,7 @@ import hscript.Expr;
 import hscript.Parser;
 import hscript.Interp;
 import states.*;
-import.states.menu.*;
+import states.menu.*;
 
 using StringTools;
 
