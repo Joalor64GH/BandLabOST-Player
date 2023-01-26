@@ -1,4 +1,4 @@
-package;
+package states;
 
 import flixel.FlxBasic;
 import flixel.FlxCamera;
@@ -47,6 +47,8 @@ import openfl.display.BitmapData;
 import hscript.Expr;
 import hscript.Parser;
 import hscript.Interp;
+import states.*;
+import.states.menu.*;
 
 using StringTools;
 
@@ -55,7 +57,7 @@ class CustomState extends FlxState
 	public var name:String;
 
 	var isMenuState:Bool;
-	var menuState:states.menu.MainMenuState;
+	var menuState:MainMenuState;
 
 	public static var filesInserted:Array<String> = [];
 
@@ -148,10 +150,10 @@ class CustomState extends FlxState
 
 		super.update(elapsed);
 
-		if (controls.BACK)
+		if (FlxG.keys.justPressed.ESCAPE)
 		{
 			FlxG.resetState();
-			FlxG.switchState(new states.menu.MainMenuState());
+			FlxG.switchState(new MainMenuState());
 		}
 	}
 

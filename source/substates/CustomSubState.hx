@@ -1,7 +1,6 @@
-package;
+package substates;
 
 import flixel.FlxBasic;
-import Song.MidSongEvent;
 import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxGame;
@@ -48,6 +47,8 @@ import openfl.display.BitmapData;
 import hscript.Expr;
 import hscript.Parser;
 import hscript.Interp;
+import states.*;
+import states.menu.*;
 
 using StringTools;
 
@@ -56,7 +57,7 @@ class CustomSubState extends FlxSubState
 	public var name:String;
 
 	var isMenuState:Bool;
-	var menuState:states.menu.MainMenuState;
+	var menuState:MainMenuState;
 
 	public static var filesInserted:Array<String> = [];
 
