@@ -4,7 +4,7 @@
 
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="BandLab OST Player" main="Main" version="1.2.1" company="Joalor64GH" />
+	<app title="BandLab OST Player" main="Main" version="1.2.5" company="Joalor64GH" />
 	<app file="OSTPlayer_WIN" if="windows" />
 	<app file="OSTPlayer_APP" if="linux" />
 	<app file="OSTPlayer_MAC" if="mac" />
@@ -58,6 +58,7 @@
 	<haxelib name="flixel-addons" />
 	<haxelib name="flixel-ui" />
 	<haxelib name="flixel-tools" />
+	<haxelib name="hscript"/>
 	<haxelib name="polymod" if="MOD_SUPPORT"/>
 
 	<!-- ______________________________ Haxedefines _____________________________ -->

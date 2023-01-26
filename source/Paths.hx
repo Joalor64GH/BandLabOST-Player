@@ -1,6 +1,7 @@
 package;
 
 import flixel.FlxG;
+import flixel.graphics.FlxGraphic;
 import openfl.utils.Assets as OpenFlAssets;
 import flixel.graphics.frames.FlxAtlasFrames;
 #if sys
@@ -21,6 +22,22 @@ class Paths
 			return '$currentLevel:$path';
 
 		return path;
+	}
+
+	static public function loadImage(key:String, ?library:String):FlxGraphic
+	{
+		var path = image(key);
+
+		if (OpenFlAssets.exists(path))
+		{
+			var bitmap = OpenFlAssets.getBitmapData(path);
+			return FlxGraphic.fromBitmapData(bitmap);
+		}
+		else
+		{
+			trace('Could not find image at path $path');
+			return null;
+		}
 	}
 	
 	inline static public function txt(key:String)
@@ -83,6 +100,28 @@ class Paths
 		return file('images/$key.png');
 	}
 
+	inline static public function state(key:String)
+	{
+		#if MODS_ALLOWED
+		var file:String = modState(key);
+		if(FileSystem.exists(file)) {
+			return file;
+		}
+		#end
+		return file('custom_states/$key.hx');
+	}
+
+	inline static public function substate(key:String)
+	{
+		#if MODS_ALLOWED
+		var file:String = modSubstate(key);
+		if(FileSystem.exists(file)) {
+			return file;
+		}
+		#end
+		return file('custom_substates/$key.hx');
+	}
+
 	inline static public function font(key:String)
 	{
 		#if MODS_ALLOWED
@@ -116,6 +155,17 @@ class Paths
 		return FlxAtlasFrames.fromSpriteSheetPacker(image(key), file('images/$key.txt'));
 	}
 
+	inline static public function getAnimateAtlas(key:String)
+	{
+		#if MODS_ALLOWED
+		var file:String = getModAnimateAtlas(key);
+		if(FileSystem.exists(file)) {
+			return file;
+		}
+		#end
+		return animate.FlxAnimate.fromAnimate(loadImage('$key/spritemap1'), file('images/$key/spritemap1.json'));
+	}
+
 	#if MOD_SUPPORT
 	inline static public function fromModFolders(file:String)
 	{
@@ -147,6 +197,16 @@ class Paths
 		return fromModFolders('images/$key.png');
 	}
 
+	inline static public function modState(key:String)
+	{
+		return fromModFolders('custom_states/$key.hx');
+	}
+
+	inline static public function modSubstate(key:String)
+	{
+		return fromModFolders('custom_substates/$key.hx');
+	}
+
 	inline static public function modFont(key:String)
 	{
 		return fromModFolders('fonts/$key');
@@ -160,6 +220,11 @@ class Paths
 	inline static public function getModPackerAtlas(key:String)
 	{
 		return FlxAtlasFrames.fromSpriteSheetPacker(image(key), fromModFolders('images/$key.txt'));
+	}
+
+	inline static public function getModAnimateAtlas(key:String)
+	{
+		return animate.FlxAnimate.fromAnimate(loadImage('$key/spritemap1'), fromModFolders('images/$key/spritemap1.json'));
 	}
 	#end
 }  
