@@ -70,7 +70,7 @@ class Paths
 			return file;
 		}
 		#end
-        return file('sounds/$key.$SOUND_EXT');
+        	return file('sounds/$key.$SOUND_EXT');
 	}
 
 	inline static public function soundRandom(key:String, min:Int, max:Int)
@@ -130,7 +130,7 @@ class Paths
 			return file;
 		}
 		#end
-        return file('fonts/$key');
+        	return file('fonts/$key');
 	}
 
 	inline static public function getSparrowAtlas(key:String)
