@@ -1,4 +1,4 @@
-package states;
+package states.menu;
 
 import core.ModCore;
 import flixel.FlxG;
@@ -13,10 +13,11 @@ import haxe.io.Bytes;
 import openfl.display.BitmapData;
 
 import states.*;
+import states.menu.*;
 
-class ModsMenuState extends FlxState
+class ModsState extends FlxState
 {
-	private var daMods:FlxTypedGroup<Alphabet>;
+	private var daMods:FlxTypedGroup<FlxText>;
 	private var iconArray:Array<ModIcon> = [];
 	private var description:FlxText;
 	private var curSelected:Int = 0;
@@ -32,7 +33,7 @@ class ModsMenuState extends FlxState
 		bg.color = 0xFFea71fd;
 		add(bg);
 
-		daMods = new FlxTypedGroup<Alphabet>();
+		daMods = new FlxTypedGroup<FlxText>();
 		add(daMods);
 
 		for (i in 0...ModCore.trackedMods.length)
@@ -73,7 +74,6 @@ class ModsMenuState extends FlxState
 		if (FlxG.keys.justPressed.ESCAPE)
 		{
 			ModCore.reload();
-			ModsMenuState.mustResetMusic = true;
 			FlxG.switchState(new MainMenuState());
 		}
 		else if (FlxG.keys.justPressed.ENTER)

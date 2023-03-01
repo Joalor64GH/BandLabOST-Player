@@ -84,21 +84,21 @@ class Paths
 
 		localTrackedAssets = [];
 	}
-	
-	inline static public function txt(key:String)
+
+	inline static public function txt(key:String):String
 		return 'assets/$key.txt';
 
-    	inline static public function xml(key:String)
+	inline static public function xml(key:String):String
 		return 'assets/$key.xml';
 
-	inline static public function hx(key:String)
+	inline static public function hx(key:String):String
 		return 'assets/$key.hx';
 
-	inline static public function font(key:String)
-        	return 'assets/fonts/$key';
+	inline static public function font(key:String):String
+		return 'assets/fonts/$key';
 
-	inline static public function sound(key:String, ?cache:Bool = true):Sound
-        	return returnSound('sounds/$key', cache);
+	static public function sound(key:String, ?cache:Bool = true):Sound
+			return returnSound('sounds/$key', cache);
 
 	inline static public function music(key:String, ?cache:Bool = true):Sound
 		return returnSound('music/$key', cache);
@@ -147,4 +147,4 @@ class Paths
 		trace('$key its null');
 		return null;
 	}
-}  
+}

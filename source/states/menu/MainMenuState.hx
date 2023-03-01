@@ -6,10 +6,9 @@ import util.Menu;
 import flixel.util.FlxColor;
 import haxe.Log;
 import lime.app.Application;
-import core.ToastCore;
 import states.menu.*;
 import states.*;
-import core.ToastCore;
+import core.*;
 
 class MainMenuState extends FlxState
 {
@@ -43,9 +42,14 @@ class MainMenuState extends FlxState
 					trace('Instructions');
 					FlxG.switchState(new InstructionsState());
 				case 2:
+				#if FUTURE_POLYMOD
 				    trace('Mod Loader');
-					Main.toast.create('Warning!', 0xFFFFFF00, 'This menu is not finished yet!');
+					if (ModCore.trackedMods != [])
+						FlxG.switchState(new ModsState());
+					else
+						Main.toast.create('No mods installed!', 0xFFFFFF00, 'Please add mods to be able to access this menu!');
 				case 3:
+				#end
 					trace('Exit');
 					#if sys
 					Sys.exit(0);
