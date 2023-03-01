@@ -9,7 +9,7 @@ import lime.app.Application;
 import core.ToastCore;
 import states.menu.*;
 import states.*;
-import Main;
+import core.ToastCore;
 
 class MainMenuState extends FlxState
 {
@@ -53,8 +53,7 @@ class MainMenuState extends FlxState
 					openfl.system.System.exit(0);
 					#end
 				default:
-					trace('custom state xd');
-					FlxG.switchState(new CustomState());
+					trace('something is fucked up');
 			}
 		}
 		// Open menu

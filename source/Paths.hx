@@ -2,229 +2,149 @@ package;
 
 import flixel.FlxG;
 import flixel.graphics.FlxGraphic;
-import openfl.utils.Assets as OpenFlAssets;
 import flixel.graphics.frames.FlxAtlasFrames;
-#if sys
-import sys.io.File;
-import sys.FileSystem;
-#end
+import openfl.media.Sound;
+import openfl.utils.Assets;
+
+using StringTools;
 
 class Paths
 {
-	inline public static var SOUND_EXT = "ogg";
+	public static var currentTrackedAssets:Map<String, FlxGraphic> = [];
+	public static var currentTrackedSounds:Map<String, Sound> = [];
 
-	static var currentLevel:String;
+	public static var localTrackedAssets:Array<String> = [];
 
-	static public function file(file:String)
+	public static function clearUnusedMemory()
 	{
-		var path = 'assets/$file';
-		if (currentLevel != null && OpenFlAssets.exists('$currentLevel:$path'))
-			return '$currentLevel:$path';
+		for (key in currentTrackedAssets.keys())
+		{
+			if (!localTrackedAssets.contains(key) && key != null)
+			{
+				var obj = currentTrackedAssets.get(key);
+				@:privateAccess
+				if (obj != null)
+				{
+					Assets.cache.removeBitmapData(key);
+					Assets.cache.clearBitmapData(key);
+					Assets.cache.clear(key);
+					FlxG.bitmap._cache.remove(key);
+					obj.destroy();
+					currentTrackedAssets.remove(key);
+				}
+			}
+		}
 
-		return path;
+		for (key in currentTrackedSounds.keys())
+		{
+			if (!localTrackedAssets.contains(key) && key != null)
+			{
+				var obj = currentTrackedSounds.get(key);
+				if (obj != null)
+				{
+					Assets.cache.removeSound(key);
+					Assets.cache.clearSounds(key);
+					Assets.cache.clear(key);
+					currentTrackedSounds.remove(key);
+				}
+			}
+		}
 	}
 
-	static public function loadImage(key:String, ?library:String):FlxGraphic
+	public static function clearStoredMemory()
 	{
-		var path = image(key);
+		@:privateAccess
+		for (key in FlxG.bitmap._cache.keys())
+		{
+			var obj = FlxG.bitmap._cache.get(key);
+			if (obj != null && !currentTrackedAssets.exists(key))
+			{
+				Assets.cache.removeBitmapData(key);
+				Assets.cache.clearBitmapData(key);
+				Assets.cache.clear(key);
+				FlxG.bitmap._cache.remove(key);
+				obj.destroy();
+			}
+		}
 
-		if (OpenFlAssets.exists(path))
+		@:privateAccess
+		for (key in Assets.cache.getSoundKeys())
 		{
-			var bitmap = OpenFlAssets.getBitmapData(path);
-			return FlxGraphic.fromBitmapData(bitmap);
+			if (key != null && !currentTrackedSounds.exists(key))
+			{
+				var obj = Assets.cache.getSound(key);
+				if (obj != null)
+				{
+					Assets.cache.removeSound(key);
+					Assets.cache.clearSounds(key);
+					Assets.cache.clear(key);
+				}
+			}
 		}
-		else
-		{
-			trace('Could not find image at path $path');
-			return null;
-		}
+
+		localTrackedAssets = [];
 	}
 	
 	inline static public function txt(key:String)
-	{
-		#if MODS_ALLOWED
-		var file:String = modTxt(key);
-		if(FileSystem.exists(file)) {
-			return file;
-		}
-		#end
-		return file('data/$key.txt');	
-	}
+		return 'assets/$key.txt'	
 
-        inline static public function xml(key:String)
-	{
-		#if MODS_ALLOWED
-		var file:String = modXml(key);
-		if(FileSystem.exists(file)) {
-			return file;
-		}
-		#end
-		return file('data/$key.xml');
-	}
+    inline static public function xml(key:String)
+		return 'assets/$key.xml'
 
-	inline static public function sound(key:String)
-	{
-		#if MODS_ALLOWED
-		var file:String = modSound(key);
-		if(FileSystem.exists(file)) {
-			return file;
-		}
-		#end
-        	return file('sounds/$key.$SOUND_EXT');
-	}
-
-	inline static public function soundRandom(key:String, min:Int, max:Int)
-	{
-		return file('sounds/$key${FlxG.random.int(min, max)}.$SOUND_EXT');
-	}
-
-	inline static public function music(key:String)
-	{
-		#if MODS_ALLOWED
-		var file:String = modMusic(key);
-		if(FileSystem.exists(file)) {
-			return file;
-		}
-		#end
-		return file('music/$key.$SOUND_EXT');
-	}
-
-	inline static public function image(key:String)
-	{
-		#if MODS_ALLOWED
-		var file:String = modImage(key);
-		if(FileSystem.exists(file)) {
-			return file;
-		}
-		#end
-		return file('images/$key.png');
-	}
-
-	inline static public function state(key:String)
-	{
-		#if MODS_ALLOWED
-		var file:String = modState(key);
-		if(FileSystem.exists(file)) {
-			return file;
-		}
-		#end
-		return file('custom_states/$key.hx');
-	}
-
-	inline static public function substate(key:String)
-	{
-		#if MODS_ALLOWED
-		var file:String = modSubstate(key);
-		if(FileSystem.exists(file)) {
-			return file;
-		}
-		#end
-		return file('custom_substates/$key.hx');
-	}
+	inline static public function hx(key:String)
+		return 'assets/$key.hx'
 
 	inline static public function font(key:String)
+        return 'assets/fonts/$key'
+
+	inline static public function sound(key:String, ?cache:Bool = true):Sound
+        return returnSound('sounds/$key', cache);
+
+	inline static public function music(key:String, ?cache:Bool = true):Sound
+		return returnSound('music/$key', cache);
+
+	inline static public function image(key:String, ?cache:Bool = true):FlxGraphic
+		return returnGraphic('images/$key', cache);
+
+	inline static public function getSparrowAtlas(key:String, ?cache:Bool = true):FlxAtlasFrames
+		return FlxAtlasFrames.fromSparrow(returnGraphic('images/$key', cache), xml('images/$key'));
+
+	inline static public function getPackerAtlas(key:String, ?cache:Bool = true):FlxAtlasFrames
+		return FlxAtlasFrames.fromSpriteSheetPacker(returnGraphic('images/$key', cache), txt('images/$key'));
+
+	public static function returnGraphic(key:String, ?cache:Bool = true):FlxGraphic
 	{
-		#if MODS_ALLOWED
-		var file:String = modFont(key);
-		if(FileSystem.exists(file)) {
-			return file;
+		var path:String = 'assets/$key.png';
+		if (Assets.exists(path, IMAGE))
+		{
+			if (!currentTrackedAssets.exists(path))
+			{
+				var graphic:FlxGraphic = FlxGraphic.fromBitmapData(Assets.getBitmapData(path), false, path, cache);
+				graphic.persist = true;
+				currentTrackedAssets.set(path, graphic);
+			}
+
+			localTrackedAssets.push(path);
+			return currentTrackedAssets.get(path);
 		}
-		#end
-        	return file('fonts/$key');
+
+		trace('$key its null');
+		return null;
 	}
 
-	inline static public function getSparrowAtlas(key:String)
+	public static function returnSound(key:String, ?cache:Bool = true):Sound
 	{
-		#if MODS_ALLOWED
-		var file:String = getModSparrowAtlas(key);
-		if(FileSystem.exists(file)) {
-			return file;
+		if (Assets.exists('assets/$key.ogg', SOUND))
+		{
+			var path:String = 'assets/$key.ogg';
+			if (!currentTrackedSounds.exists(path))
+				currentTrackedSounds.set(path, Assets.getSound(path, cache));
+
+			localTrackedAssets.push(path);
+			return currentTrackedSounds.get(path);
 		}
-		#end
-		return FlxAtlasFrames.fromSparrow(image(key), file('images/$key.xml'));
-	}
 
-	inline static public function getPackerAtlas(key:String)
-	{
-		#if MODS_ALLOWED
-		var file:String = getModPackerAtlas(key);
-		if(FileSystem.exists(file)) {
-			return file;
-		}
-		#end
-		return FlxAtlasFrames.fromSpriteSheetPacker(image(key), file('images/$key.txt'));
+		trace('$key its null');
+		return null;
 	}
-
-	inline static public function getAnimateAtlas(key:String)
-	{
-		#if MODS_ALLOWED
-		var file:String = getModAnimateAtlas(key);
-		if(FileSystem.exists(file)) {
-			return file;
-		}
-		#end
-		return animate.FlxAnimate.fromAnimate(loadImage('$key/spritemap1'), file('images/$key/spritemap1.json'));
-	}
-
-	#if MOD_SUPPORT
-	inline static public function fromModFolders(file:String)
-	{
-		return 'mods/$file';
-	}
-
-	inline static public function modTxt(key:String)
-	{
-		return fromModFolders('data/$key.txt');
-	}
-
-        inline static public function modXml(key:String)
-	{
-		return fromModFolders('data/$key.xml');
-	}
-
-	inline static public function modSound(key:String)
-	{
-		return fromModFolders('sounds/$key.$SOUND_EXT');
-	}
-
-	inline static public function modMusic(key:String)
-	{
-		return fromModFolders('music/$key.$SOUND_EXT');
-	}
-
-	inline static public function modImage(key:String)
-	{
-		return fromModFolders('images/$key.png');
-	}
-
-	inline static public function modState(key:String)
-	{
-		return fromModFolders('custom_states/$key.hx');
-	}
-
-	inline static public function modSubstate(key:String)
-	{
-		return fromModFolders('custom_substates/$key.hx');
-	}
-
-	inline static public function modFont(key:String)
-	{
-		return fromModFolders('fonts/$key');
-	}
-
-	inline static public function getModSparrowAtlas(key:String)
-	{
-		return FlxAtlasFrames.fromSparrow(image(key), fromModFolders('images/$key.xml'));
-	}
-
-	inline static public function getModPackerAtlas(key:String)
-	{
-		return FlxAtlasFrames.fromSpriteSheetPacker(image(key), fromModFolders('images/$key.txt'));
-	}
-
-	inline static public function getModAnimateAtlas(key:String)
-	{
-		return animate.FlxAnimate.fromAnimate(loadImage('$key/spritemap1'), fromModFolders('images/$key/spritemap1.json'));
-	}
-	#end
 }  

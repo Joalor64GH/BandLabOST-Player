@@ -4,10 +4,9 @@ import flixel.FlxGame;
 import openfl.display.Sprite;
 import openfl.display.FPS;
 import openfl.Lib;
-import core.ToastCore;
 import states.menu.*;
-import classes.*;
-import states.*;
+import states.*
+import core.*;
 
 class Main extends Sprite
 {
@@ -18,7 +17,7 @@ class Main extends Sprite
 	var skipSplash:Bool = false; // Whether to skip the flixel splash screen that appears in release mode.
 	var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets'
 
-	public static var toast:ToastCore; // credits go to MAJigsaw77
+	public static var toast:ToastCore;
 	
 	// You can pretty much ignore everything from here on - your code should go in your states.
 	
@@ -26,7 +25,7 @@ class Main extends Sprite
 	{
 		super();
 
-		ModSupport.load();
+		ModCore.reload();
 
 		addChild(new FlxGame(0, 0, MainMenuState));
 		addChild(new FPS(10, 3, 0xFFFFFF));

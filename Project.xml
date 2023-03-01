@@ -35,7 +35,7 @@
 
 	<!-- _______________________________ Custom Defines ______________________________ -->
 
-	<define name='MOD_SUPPORT' if='desktop'/>
+	<define name='FUTURE_POLYMOD' if='desktop'/>
 
 	<!-- _____________________________ Export Folder ____________________________ -->
 
@@ -46,11 +46,9 @@
 
 	<source path="source" />
 
-	<assets path="assets/fonts" embed='true'/>
-	<assets path="assets/" rename="assets" exclude="*.mp3"/>
-	<section if="MOD_SUPPORT">
-	       <assets path='example_mods' rename='mods' embed='false'/>
-	</section>
+	<assets path="assets" exclude="*.mp3"/>
+
+	<assets path="mods" if="FUTURE_POLYMOD"/>
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
@@ -59,7 +57,7 @@
 	<haxelib name="flixel-ui" />
 	<haxelib name="flixel-tools" />
 	<haxelib name="hscript"/>
-	<haxelib name="polymod" if="MOD_SUPPORT"/>
+	<haxelib name="polymod-joalor64" if="FUTURE_POLYMOD"/>
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
@@ -81,10 +79,9 @@
 	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
 	
 	<!-- Use defines to configure the behavior of Polymod. -->
-	<haxedef name="POLYMOD_MOD_METADATA_FILE" value="_polymod_meta.json" />
-	<haxedef name="POLYMOD_DEBUG" if="debug" />
+	<haxedef name="POLYMOD_SCRIPT_EXT" value=".hx" />
 
-        <!-- Support for Polymod 1.5.3+ -->
+        <!-- Script Logging -->
 	<haxedef name="hscriptPos" value="true" />
 	
 	<!-- No deprecation warnings. -->
