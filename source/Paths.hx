@@ -86,19 +86,19 @@ class Paths
 	}
 	
 	inline static public function txt(key:String)
-		return 'assets/$key.txt'	
+		return 'assets/$key.txt';
 
-    inline static public function xml(key:String)
-		return 'assets/$key.xml'
+    	inline static public function xml(key:String)
+		return 'assets/$key.xml';
 
 	inline static public function hx(key:String)
-		return 'assets/$key.hx'
+		return 'assets/$key.hx';
 
 	inline static public function font(key:String)
-        return 'assets/fonts/$key'
+        	return 'assets/fonts/$key';
 
 	inline static public function sound(key:String, ?cache:Bool = true):Sound
-        return returnSound('sounds/$key', cache);
+        	return returnSound('sounds/$key', cache);
 
 	inline static public function music(key:String, ?cache:Bool = true):Sound
 		return returnSound('music/$key', cache);
