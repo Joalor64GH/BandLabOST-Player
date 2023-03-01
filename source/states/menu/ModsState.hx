@@ -18,7 +18,7 @@ import states.menu.*;
 
 class ModsState extends FlxState
 {
-	private var daMods:FlxTypedGroup<FlxText>;
+	private var daMods:FlxTypedGroup<Alphabet>;
 	private var iconArray:Array<ModIcon> = [];
 	private var description:FlxText;
 	private var curSelected:Int = 0;
@@ -34,12 +34,12 @@ class ModsState extends FlxState
 		bg.color = 0xFFea71fd;
 		add(bg);
 
-		daMods = new FlxTypedGroup<FlxText>();
+		daMods = new FlxTypedGroup<Alphabet>();
 		add(daMods);
 
 		for (i in 0...ModCore.trackedMods.length)
 		{
-			var text:FlxText = new FlxText(0, (70 * i) + 30, ModCore.trackedMods[i].title, false, false);
+			var text:Alphabet = new Alphabet(0, (70 * i) + 30, ModCore.trackedMods[i].title, false, false);
 			text.isMenuItem = true;
 			text.forceX = 70;
 			text.targetY = i;
