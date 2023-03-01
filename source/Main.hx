@@ -5,7 +5,7 @@ import openfl.display.Sprite;
 import openfl.display.FPS;
 import openfl.Lib;
 import states.menu.*;
-import states.*
+import states.*;
 import core.*;
 
 class Main extends Sprite
