@@ -85,26 +85,46 @@ class Paths
 		localTrackedAssets = [];
 	}
 
-	inline static public function txt(key:String):String
-		return 'assets/$key.txt';
+	static var currentLevel:String;
 
-	inline static public function xml(key:String):String
-		return 'assets/$key.xml';
+	static public function file(file:String)
+	{
+		var path = 'assets/$file';
+		if (currentLevel != null && OpenFlAssets.exists('$currentLevel:$path'))
+			return '$currentLevel:$path';
 
-	inline static public function hx(key:String):String
-		return 'assets/$key.hx';
+		return path;
+	}
 
-	inline static public function font(key:String):String
-		return 'assets/fonts/$key';
+	inline static public function txt(key:String)
+		return file('data/$key.txt');
 
-	static public function sound(key:String, ?cache:Bool = true):Sound
-			return returnSound('sounds/$key', cache);
+	inline static public function xml(key:String)
+		return file('data/$key.xml');
+
+	inline static public function hx(key:String)
+		return file('$key.hx');
+
+	inline static public function font(key:String)
+		return file('fonts/$key');
+
+	inline static public function sound(key:String, ?cache:Bool = true):Sound
+	{
+		var sound:Sound = returnSound('sounds', key);
+		return sound;
+	}
 
 	inline static public function music(key:String, ?cache:Bool = true):Sound
-		return returnSound('music/$key', cache);
+	{
+		var file:Sound = returnSound('music', key);
+		return file;
+	}
 
 	inline static public function image(key:String, ?cache:Bool = true):FlxGraphic
-		return returnGraphic('images/$key', cache);
+	{	
+		var returnAsset:FlxGraphic = returnGraphic(key);
+		return returnAsset;
+	}
 
 	inline static public function getSparrowAtlas(key:String, ?cache:Bool = true):FlxAtlasFrames
 		return FlxAtlasFrames.fromSparrow(returnGraphic('images/$key', cache), xml('images/$key'));
@@ -114,7 +134,7 @@ class Paths
 
 	public static function returnGraphic(key:String, ?cache:Bool = true):FlxGraphic
 	{
-		var path:String = 'assets/$key.png';
+		var path:String = file('images/$key.png');
 		if (Assets.exists(path, IMAGE))
 		{
 			if (!currentTrackedAssets.exists(path))
@@ -134,9 +154,9 @@ class Paths
 
 	public static function returnSound(key:String, ?cache:Bool = true):Sound
 	{
-		if (Assets.exists('assets/$key.ogg', SOUND))
+		var path:String = file('sounds/$key.ogg');
+		if (Assets.exists(path, SOUND))
 		{
-			var path:String = 'assets/$key.ogg';
 			if (!currentTrackedSounds.exists(path))
 				currentTrackedSounds.set(path, Assets.getSound(path, cache));
 
