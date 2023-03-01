@@ -1,4 +1,4 @@
-package;
+package util;
 
 import flixel.FlxG;
 import flixel.math.FlxMath;
