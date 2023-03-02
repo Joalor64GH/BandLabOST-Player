@@ -59,6 +59,9 @@
 	<haxelib name="hscript"/>
 	<haxelib name="polymod-joalor64" if="FUTURE_POLYMOD"/>
 
+	<!--for debugging-->
+	<haxelib name="hxcpp-debug-server" if="debug" />
+
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
         <!--Enable the Flixel core recording system-->
