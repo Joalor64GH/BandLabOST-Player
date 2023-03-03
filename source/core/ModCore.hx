@@ -30,6 +30,8 @@ class ModCore
 	];
 
 	public static var trackedMods:Array<ModMetadata> = [];
+
+	private static var failedToReload:Bool = false;
 	#end
 
 	public static function reload():Void
@@ -37,6 +39,9 @@ class ModCore
 		#if FUTURE_POLYMOD
 		trace('Reloading Polymod...');
 		loadMods(getMods());
+		if (failedToReload){
+			trace('Failed to reload...');
+		}
 		#else
 		trace("Polymod reloading is not supported on your Platform!");
 		#end
@@ -56,7 +61,12 @@ class ModCore
 			ignoredFiles: Polymod.getDefaultIgnoreList()
 		});
 
-		trace('Loading Successful, ${loadedModlist.length} / ${folders.length} new mods.');
+		if (loadedModlist != null && loadedModlist.length > 0 && folders != null && folders.length > 0)
+			trace('Loading Successful, ${loadedModlist.length} / ${folders.length} new mods.');
+		else {
+			trace('Loading failed with mods');
+			failedToReload = true;
+		}
 
 		for (mod in loadedModlist)
 			trace('Name: ${mod.title}, [${mod.id}]');
@@ -66,7 +76,7 @@ class ModCore
 	{
 		trackedMods = [];
 
-		if (FlxG.save.data.disabledMods == null)
+		if (Data.disabledMods)
 		{
 			FlxG.save.data.disabledMods = [];
 			FlxG.save.flush();
@@ -79,7 +89,7 @@ class ModCore
 		for (i in Polymod.scan(MOD_DIR, '*.*.*', onError))
 		{
 			trackedMods.push(i);
-			if (!FlxG.save.data.disabledMods.contains(i.id))
+			if (!Data.disabledMods.contains(i.id))
 				daList.push(i.id);
 		}
 
