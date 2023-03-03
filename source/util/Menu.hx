@@ -112,7 +112,7 @@ class Menu extends FlxSubState
 				// Close Menu action
 				flashArrow();
 				justPressedEnter = true; // lock inputs
-				FlxG.sound.play(Paths.sound('confirmMenu'));
+				FlxG.sound.play(Paths.sound('selection'));
 				new FlxTimer().start(2, doAction, 1);
 			}
 		}

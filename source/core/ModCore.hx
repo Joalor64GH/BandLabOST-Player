@@ -66,6 +66,12 @@ class ModCore
 	{
 		trackedMods = [];
 
+		if (FlxG.save.data.disabledMods == null)
+		{
+			FlxG.save.data.disabledMods = [];
+			FlxG.save.flush();
+		}
+
 		var daList:Array<String> = [];
 
 		trace('Searching for Mods...');
@@ -73,7 +79,8 @@ class ModCore
 		for (i in Polymod.scan(MOD_DIR, '*.*.*', onError))
 		{
 			trackedMods.push(i);
-			daList.push(i.id);
+			if (!FlxG.save.data.disabledMods.contains(i.id))
+				daList.push(i.id);
 		}
 
 		trace('Found ${daList.length} new mods.');
