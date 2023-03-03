@@ -68,9 +68,6 @@ class ModCore
 
 		var daList:Array<String> = [];
 
-		if (FlxG.save.data.disabledMods == null)
-			FlxG.save.data.disabledMods = [];
-
 		trace('Searching for Mods...');
 
 		for (i in Polymod.scan(MOD_DIR, '*.*.*', onError))
