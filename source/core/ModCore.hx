@@ -76,7 +76,7 @@ class ModCore
 	{
 		trackedMods = [];
 
-		if (Data.disabledMods)
+		if (FlxG.save.data.disabledMods == null)
 		{
 			FlxG.save.data.disabledMods = [];
 			FlxG.save.flush();
@@ -89,7 +89,7 @@ class ModCore
 		for (i in Polymod.scan(MOD_DIR, '*.*.*', onError))
 		{
 			trackedMods.push(i);
-			if (!Data.disabledMods.contains(i.id))
+			if (!FlxG.save.data.disabledMods.contains(i.id))
 				daList.push(i.id);
 		}
 

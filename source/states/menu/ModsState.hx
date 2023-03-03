@@ -80,15 +80,15 @@ class ModsState extends FlxState
 		}
 		else if (FlxG.keys.justPressed.ENTER)
 		{
-			if (!Data.disabledMods.contains(ModCore.trackedMods[curSelected].id))
+			if (!FlxG.save.data.disabledMods.contains(ModCore.trackedMods[curSelected].id))
 			{
-				Data.disabledMods.push(ModCore.trackedMods[curSelected].id);
+				FlxG.save.data.disabledMods.push(ModCore.trackedMods[curSelected].id);
 				FlxG.save.flush();
 				changeSelection();
 			}
 			else
 			{
-				Data.disabledMods.remove(ModCore.trackedMods[curSelected].id);
+				FlxG.save.data.disabledMods.remove(ModCore.trackedMods[curSelected].id);
 				FlxG.save.flush();
 				changeSelection();
 			}
@@ -109,7 +109,7 @@ class ModsState extends FlxState
 		for (i in 0...iconArray.length)
 		{
 			iconArray[i].alpha = 0.6;
-			if (!Data.disabledMods.contains(ModCore.trackedMods[i].id))
+			if (!FlxG.save.data.disabledMods.contains(ModCore.trackedMods[i].id))
 				iconArray[i].alpha = 1;
 		}
 
@@ -120,7 +120,7 @@ class ModsState extends FlxState
 			bullShit++;
 
 			daMods.members[i].alpha = 0.6;
-			if (!Data.disabledMods.contains(ModCore.trackedMods[i].id))
+			if (!FlxG.save.data.disabledMods.contains(ModCore.trackedMods[i].id))
 				daMods.members[i].alpha = 1;
 		}
 
