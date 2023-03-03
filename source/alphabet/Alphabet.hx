@@ -1,4 +1,4 @@
-package;
+package alphabet;
 
 import flixel.FlxG;
 import flixel.FlxSprite;

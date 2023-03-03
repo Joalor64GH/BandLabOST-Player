@@ -1,8 +1,8 @@
 package;
 
+import FPS;
 import flixel.FlxGame;
 import openfl.display.Sprite;
-import openfl.display.FPS;
 import openfl.Lib;
 import states.menu.*;
 import states.*;

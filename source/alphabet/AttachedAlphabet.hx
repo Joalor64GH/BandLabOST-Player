@@ -1,5 +1,6 @@
-package;
+package alphabet;
 
+import alphabet.Alphabet;
 import flixel.FlxSprite;
 
 class AttachedAlphabet extends Alphabet

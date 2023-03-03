@@ -15,6 +15,7 @@ import openfl.display.BitmapData;
 
 import states.*;
 import states.menu.*;
+import alphabet.*;
 
 class ModsState extends FlxState
 {
