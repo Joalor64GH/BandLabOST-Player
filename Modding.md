@@ -3,7 +3,7 @@
 
 # QUICK AND DIRTY MOD GUIDE
 
-With the unreleased 1.2.5 update, I added a bit of mod support backend.
+With the 1.2.5 update, I added a bit of mod support backend.
 
 It's POLYMOD, which is made by Lars Doucet: https://github.com/larsiusprime/polymod
 
