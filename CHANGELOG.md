@@ -27,3 +27,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Four New Songs
 * Extra Icon Sizes
 * Two New Library Files
+
+## [1.2.5] - 2023-3-4
+### Added
+* More Reorganization
+* Completely Robust Mod Support
+* ToastCore
+* Unfinished Mod Menu
+* Custom State/Substate Support
