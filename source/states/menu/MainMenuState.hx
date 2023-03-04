@@ -43,7 +43,7 @@ class MainMenuState extends FlxState
 					FlxG.switchState(new InstructionsState());
 				case 2:
 				#if FUTURE_POLYMOD
-				    trace('Mod Loader');
+				    	trace('Mod Loader');
 					/*if (ModCore.trackedMods != [])
 						FlxG.switchState(new ModsState());
 					else*/

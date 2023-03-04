@@ -98,7 +98,7 @@ class Paths
 		return 'assets/fonts/$key';
 
 	static public function sound(key:String, ?cache:Bool = true):Sound
-			return returnSound('sounds/$key', cache);
+		return returnSound('sounds/$key', cache);
 
 	inline static public function music(key:String, ?cache:Bool = true):Sound
 		return returnSound('music/$key', cache);
