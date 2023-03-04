@@ -28,9 +28,6 @@ class Main extends Sprite
 
 		ModCore.reload();
 
-		if (FlxG.save.data.disabledMods == null)
-			FlxG.save.data.disabledMods = false; 
-
 		addChild(new FlxGame(0, 0, MainMenuState));
 		addChild(new FPS(10, 3, 0xFFFFFF));
 

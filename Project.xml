@@ -58,8 +58,6 @@
 	<haxelib name="flixel-tools" />
 	<haxelib name="hscript"/>
 	<haxelib name="polymod-joalor64" if="FUTURE_POLYMOD"/>
-
-	<!--for debugging-->
 	<haxelib name="hxcpp-debug-server" if="debug" />
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
