@@ -100,9 +100,6 @@ class Paths
 	static public function sound(key:String, ?cache:Bool = true):Sound
 			return returnSound('sounds/$key', cache);
 
-	inline static public function soundRandom(key:String, min:Int, max:Int)
-		return sound(key + FlxG.random.int(min, max));
-
 	inline static public function music(key:String, ?cache:Bool = true):Sound
 		return returnSound('music/$key', cache);
 
