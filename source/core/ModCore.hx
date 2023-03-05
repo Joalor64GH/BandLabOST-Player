@@ -18,14 +18,12 @@ class ModCore
 
 	#if FUTURE_POLYMOD
 	private static final extensions:Map<String, PolymodAssetType> = [
-		'mp3' => AUDIO_GENERIC, 
-		'ogg' => AUDIO_GENERIC, 
-		'wav' => AUDIO_GENERIC, 
+		'ogg' => AUDIO_GENERIC,
 		'png' => IMAGE,
 		'xml' => TEXT,
-		'txt' => TEXT, 
-		'hx' => TEXT, 
-		'ttf' => FONT, 
+		'txt' => TEXT,
+		'hx' => TEXT,
+		'ttf' => FONT,
 		'otf' => FONT
 	];
 

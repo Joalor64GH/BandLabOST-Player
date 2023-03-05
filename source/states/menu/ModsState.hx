@@ -24,10 +24,14 @@ class ModsState extends FlxState
 	private var description:FlxText;
 	private var curSelected:Int = 0;
 
+	public static var disableMods:Bool = false;
+
 	override function create()
 	{
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
+
+		disableMods = FlxG.save.data.disabledMods;
 
 		persistentUpdate = true;
 
@@ -80,15 +84,15 @@ class ModsState extends FlxState
 		}
 		else if (FlxG.keys.justPressed.ENTER)
 		{
-			if (!FlxG.save.data.disabledMods.contains(ModCore.trackedMods[curSelected].id))
+			if (!disableMods.contains(ModCore.trackedMods[curSelected].id))
 			{
-				FlxG.save.data.disabledMods.push(ModCore.trackedMods[curSelected].id);
+				disableMods.push(ModCore.trackedMods[curSelected].id);
 				FlxG.save.flush();
 				changeSelection();
 			}
 			else
 			{
-				FlxG.save.data.disabledMods.remove(ModCore.trackedMods[curSelected].id);
+				disableMods.remove(ModCore.trackedMods[curSelected].id);
 				FlxG.save.flush();
 				changeSelection();
 			}
@@ -109,7 +113,7 @@ class ModsState extends FlxState
 		for (i in 0...iconArray.length)
 		{
 			iconArray[i].alpha = 0.6;
-			if (!FlxG.save.data.disabledMods.contains(ModCore.trackedMods[i].id))
+			if (!disableMods.contains(ModCore.trackedMods[i].id))
 				iconArray[i].alpha = 1;
 		}
 
@@ -120,7 +124,7 @@ class ModsState extends FlxState
 			bullShit++;
 
 			daMods.members[i].alpha = 0.6;
-			if (!FlxG.save.data.disabledMods.contains(ModCore.trackedMods[i].id))
+			if (!disableMods.contains(ModCore.trackedMods[i].id))
 				daMods.members[i].alpha = 1;
 		}
 
