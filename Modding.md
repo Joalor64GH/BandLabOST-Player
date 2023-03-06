@@ -1,7 +1,4 @@
-# RIGHT NOW THE MODS FOLDER DOES NOT WORK ENTIRELY JUST YET!!!
-## THIS IS WORK IN PROGRESS!!!
-
-# QUICK AND DIRTY MOD GUIDE
+# QUICK MOD GUIDE
 
 With the 1.2.5 update, I added a bit of mod support backend.
 
