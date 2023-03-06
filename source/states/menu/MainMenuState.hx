@@ -44,9 +44,10 @@ class MainMenuState extends FlxState
 				case 2:
 				#if FUTURE_POLYMOD
 				    	trace('Mod Loader');
-					if (ModCore.trackedMods != [])
+					/*if (ModCore.trackedMods != [])
 						FlxG.switchState(new ModsState());
-					else
+					else*/
+						FlxG.resetState();
 						Main.toast.create('No mods installed!', 0xFFFFFF00, 'Please add mods to be able to access this menu!');
 				case 3:
 				#end
