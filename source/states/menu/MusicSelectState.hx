@@ -1,14 +1,14 @@
 package states.menu;
 
+import haxe.Log;
+import util.Menu;
 import flixel.FlxG;
 import flixel.FlxState;
-import util.Menu;
 import flixel.util.FlxColor;
-import haxe.Log;
 import lime.app.Application;
 import states.menu.*;
-import states.*;
 import substates.*;
+import states.*;
 
 class MusicSelectState extends FlxState
 {

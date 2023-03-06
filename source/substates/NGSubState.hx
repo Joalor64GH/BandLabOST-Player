@@ -1,11 +1,11 @@
 package substates;
 
+import haxe.Log;
+import util.Menu;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.FlxSubState;
-import util.Menu;
 import flixel.util.FlxColor;
-import haxe.Log;
 import lime.app.Application;
 import states.menu.*;
 import states.*;
