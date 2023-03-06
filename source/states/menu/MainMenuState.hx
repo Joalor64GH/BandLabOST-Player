@@ -58,7 +58,7 @@ class MainMenuState extends FlxState
 					openfl.system.System.exit(0);
 					#end
 				default:
-					trace('something is fucked up');
+					trace('something is fucked');
 			}
 		}
 		// Open menu
