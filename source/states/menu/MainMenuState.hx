@@ -13,6 +13,8 @@ import states.menu.*;
 import states.*;
 import core.*;
 
+using StringTools;
+
 class MainMenuState extends FlxState
 {
 	var randomAssText:Array<String> = [];
