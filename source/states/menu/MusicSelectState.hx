@@ -4,7 +4,7 @@ import haxe.Log;
 import util.Menu;
 import flixel.FlxG;
 import flixel.FlxState;
-import flixel.util.FlxColor;
+import flixel.FlxSprite;
 import lime.app.Application;
 import states.menu.*;
 import substates.*;
@@ -12,13 +12,18 @@ import states.*;
 
 class MusicSelectState extends FlxState
 {
-	var substateColor:FlxColor;
-
 	override public function create()
 	{
 		// openfl.system.System.gc();
-		
-		substateColor = new FlxColor();
+
+		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('musicBG'));
+		bg.scrollFactor.x = 0;
+		bg.scrollFactor.y = 0.18;
+		bg.setGraphicSize(Std.int(bg.width * 1.1));
+		bg.updateHitbox();
+		bg.screenCenter();
+		bg.antialiasing = true;
+		add(bg);
 
 		// Create menu
 		Menu.title = "Song Selector";
@@ -88,7 +93,7 @@ class MusicSelectState extends FlxState
 			}
 		}
 		// Open menu
-		FlxG.switchState(new Menu(substateColor.setRGB(0, 0, 0, 125)));
+		FlxG.switchState(new Menu());
 
 		super.create();
 	}
