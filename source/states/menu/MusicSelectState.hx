@@ -11,9 +11,14 @@ import states.*;
 
 class MusicSelectState extends FlxState
 {
+	var bg:FlxSprite;
+
 	override public function create()
 	{
 		// openfl.system.System.gc();
+
+		bg = new FlxSprite().loadGraphic(Paths.image('musicBG'));
+		add(bg);
 
 		// Create menu
 		Menu.title = "Song Selector";
@@ -84,15 +89,6 @@ class MusicSelectState extends FlxState
 		}
 		// Open menu
 		FlxG.switchState(new Menu());
-
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('musicBG'));
-		bg.scrollFactor.x = 0;
-		bg.scrollFactor.y = 0.18;
-		bg.setGraphicSize(Std.int(bg.width * 1.1));
-		bg.updateHitbox();
-		bg.screenCenter();
-		bg.antialiasing = true;
-		add(bg);
 
 		super.create();
 	}
