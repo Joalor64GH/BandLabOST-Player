@@ -12,8 +12,6 @@ import states.*;
 
 class NGSubState extends FlxSubState
 {
-	var substateColor:FlxColor;
-
 	override public function create()
 	{
 		// openfl.system.System.gc();

@@ -1,6 +1,7 @@
 package states.menu;
 
 import flixel.FlxG;
+import flixel.FlxState;
 import flixel.FlxSprite;
 import flixel.math.FlxMath;
 import flash.text.TextField;

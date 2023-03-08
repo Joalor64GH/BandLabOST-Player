@@ -6,6 +6,8 @@ import flixel.FlxG;
 import openfl.Assets;
 import flixel.FlxState;
 import flixel.FlxSprite;
+import flixel.text.FlxText;
+import flixel.util.FlxColor;
 import lime.app.Application;
 import states.menu.*;
 import states.*;
