@@ -1,6 +1,5 @@
 package states.menu;
 
-import haxe.Log;
 import util.Menu;
 import flixel.FlxG;
 import flixel.FlxState;

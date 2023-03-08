@@ -1,24 +1,18 @@
 package states.menu;
 
-import haxe.Log;
 import util.Menu;
 import flixel.FlxG;
 import openfl.Assets;
 import flixel.FlxState;
 import flixel.FlxSprite;
-import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import lime.app.Application;
 import states.menu.*;
 import states.*;
 import core.*;
 
-using StringTools;
-
 class MainMenuState extends FlxState
 {
-	var randomAssText:Array<String> = [];
-
 	override public function create()
 	{
 		// openfl.system.System.gc();
@@ -31,13 +25,6 @@ class MainMenuState extends FlxState
 		bg.screenCenter();
 		bg.antialiasing = true;
 		add(bg);
-
-		randomAssText = FlxG.random.getObject(getText());
-
-		var dumbText:FlxText = new FlxText(12, FlxG.height - 24, 0, [randomAssText[0]], 12);
-		dumbText.scrollFactor.set();
-		dumbText.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		add(dumbText);
 
 		// Create menu
 		Menu.title = "BandLab OST Player";
@@ -88,21 +75,6 @@ class MainMenuState extends FlxState
 		FlxG.switchState(new Menu());
 
 		super.create();
-	}
-
-	function getText():Array<Array<String>>
-	{
-		var fullText:String = Assets.getText(Paths.txt('goofyText'));
-
-		var firstArray:Array<String> = fullText.split('\n');
-		var swagGoodArray:Array<Array<String>> = [];
-
-		for (i in firstArray)
-		{
-			swagGoodArray.push(i.split('--'));
-		}
-
-		return swagGoodArray;
 	}
 
 	override public function update(elapsed:Float)
