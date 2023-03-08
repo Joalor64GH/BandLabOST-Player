@@ -46,12 +46,10 @@ class Menu extends FlxSubState
 		cb = callback.bind(_);
 
 		var titleT = new FlxText(20, 0, 0, title, 40, true);
-		titleT.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		titleT.screenCenter(X);
 		add(titleT);
 
 		optionsT.alignment = FlxTextAlign.CENTER;
-		optionsT.setFormat(Paths.font("vcrEXTD.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		var tempString = "";
 		for (option in options)
 			tempString = tempString + option + "\n";

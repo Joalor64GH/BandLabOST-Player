@@ -38,11 +38,11 @@ class CreditsState extends FlxState
 
 	override function create()
 	{
-		var initCreditlist = CoolUtil.coolTextFile(Paths.txt('creditsList'));
+		var initCreditlist = CoolUtil.coolTextFile(Paths.txt('data/creditsList'));
 
-		if (Assets.exists(Paths.txt('creditsList')))
+		if (Assets.exists(Paths.txt('data/creditsList')))
 		{
-			initCreditlist = Assets.getText(Paths.txt('creditsList')).trim().split('\n');
+			initCreditlist = Assets.getText(Paths.txt('data/creditsList')).trim().split('\n');
 
 			for (i in 0...initCreditlist.length)
 			{
