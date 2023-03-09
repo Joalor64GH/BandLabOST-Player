@@ -2,8 +2,8 @@ package states.menu;
 
 import util.Menu;
 import flixel.FlxG;
-import openfl.Assets;
 import flixel.FlxSprite;
+import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import lime.app.Application;
 import states.menu.*;
@@ -66,6 +66,11 @@ class MainMenuState extends Menu
 					trace('something is fucked');
 			}
 		}
+
+		var versionShit:FlxText = new FlxText(5, FlxG.height - 24, 0, "BOSTP v" + Application.current.meta.get('version'), 12);
+		versionShit.scrollFactor.set();
+		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(versionShit);
 
 		super.create();
 	}

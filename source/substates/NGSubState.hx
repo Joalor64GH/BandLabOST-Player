@@ -2,14 +2,12 @@ package substates;
 
 import util.Menu;
 import flixel.FlxG;
-import flixel.FlxState;
 import flixel.FlxSprite;
-import flixel.FlxSubState;
 import lime.app.Application;
 import states.menu.*;
 import states.*;
 
-class NGSubState extends FlxSubState
+class NGSubState extends Menu
 {
 	var bg:FlxSprite;
 
@@ -47,8 +45,6 @@ class NGSubState extends FlxSubState
 					trace('something is fucked');
 			}
 		}
-		// Open menu
-		FlxG.switchState(new Menu());
 
 		super.create();
 	}
