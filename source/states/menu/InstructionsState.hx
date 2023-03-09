@@ -28,9 +28,15 @@ class InstructionsState extends FlxState
 		bg.antialiasing = true;
 		add(bg);
 
-                DisplayText = new FlxText(0, 0, FlxG.width, "Use the UP and DOWN keys to\nnavigate through the menus.\nChoose a song to listen to it.\nWhen you are done listening,\npress ESC to go back.", 32);
+                DisplayText = new FlxText(0, 0, FlxG.width, 
+				"Use the UP and DOWN keys to" 
+				+ "\nnavigate through the menus."
+				+ "\nChoose a song to listen to it."
+				+ "\nWhen you are done listening,"
+				+ "\npress ESC to go back."
+				+ "\nOtherwise, press BACKSPACE to" 
+				+ "\ngo back to the Song Selector.", 32);
 		DisplayText.setFormat(Paths.font("vcr.ttf"), 54, FlxColor.WHITE, FlxTextAlign.CENTER,FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
-
 		add(DisplayText);
     }
 

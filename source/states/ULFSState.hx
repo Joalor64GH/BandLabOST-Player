@@ -31,7 +31,6 @@ class ULFSState extends FlxState
 
         DisplayText = new FlxText(0, 0, FlxG.width, "NOW PLAYING:\nUntitled Lo-Fi Song", 32);
 	DisplayText.setFormat(Paths.font("vcr.ttf"), 54, FlxColor.WHITE, FlxTextAlign.CENTER,FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
-
 	add(DisplayText);
 
         FlxG.sound.playMusic(Paths.music('Untitled_LoFi_Song'), 1);
@@ -44,6 +43,11 @@ class ULFSState extends FlxState
         if (FlxG.keys.justPressed.ESCAPE)
 	{
 		FlxG.switchState(new MainMenuState());
+                FlxG.sound.music.volume = 0;
+	}
+        else if (FlxG.keys.justPressed.BACKSPACE)
+	{
+		FlxG.switchState(new MusicSelectState());
                 FlxG.sound.music.volume = 0;
 	}
     }

@@ -31,7 +31,6 @@ class PIVState extends FlxState
 
         DisplayText = new FlxText(0, 0, FlxG.width, "NOW PLAYING:\nPure Indian Vibes", 32);
 	DisplayText.setFormat(Paths.font("vcr.ttf"), 54, FlxColor.WHITE, FlxTextAlign.CENTER,FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
-
 	add(DisplayText);
 
         FlxG.sound.playMusic(Paths.music('Pure_Indian_Vibes'), 1);
@@ -44,6 +43,11 @@ class PIVState extends FlxState
         if (FlxG.keys.justPressed.ESCAPE)
 	{
 		FlxG.switchState(new MainMenuState());
+                FlxG.sound.music.volume = 0;
+	}
+        else if (FlxG.keys.justPressed.BACKSPACE)
+	{
+		FlxG.switchState(new MusicSelectState());
                 FlxG.sound.music.volume = 0;
 	}
     }

@@ -31,7 +31,6 @@ class NGREState extends FlxState
 
         DisplayText = new FlxText(0, 0, FlxG.width, "NOW PLAYING:\nNighttime Gaming REMIX", 32);
 	DisplayText.setFormat(Paths.font("vcr.ttf"), 54, FlxColor.WHITE, FlxTextAlign.CENTER,FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
-
 	add(DisplayText);
 
         FlxG.sound.playMusic(Paths.music('Nighttime_Gaming_REMIX'), 1);
@@ -44,6 +43,11 @@ class NGREState extends FlxState
         if (FlxG.keys.justPressed.ESCAPE)
 	{
 		FlxG.switchState(new MainMenuState());
+                FlxG.sound.music.volume = 0;
+	}
+        else if (FlxG.keys.justPressed.BACKSPACE)
+	{
+		FlxG.switchState(new MusicSelectState());
                 FlxG.sound.music.volume = 0;
 	}
     }

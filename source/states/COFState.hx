@@ -31,7 +31,6 @@ class COFState extends FlxState
 
         DisplayText = new FlxText(0, 0, FlxG.width, "NOW PLAYING:\nCreepy Ol Forest", 32);
 	DisplayText.setFormat(Paths.font("vcr.ttf"), 54, FlxColor.WHITE, FlxTextAlign.CENTER,FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
-
 	add(DisplayText);
 
         FlxG.sound.playMusic(Paths.music('Creepy_Ol_Forest'), 1);
@@ -44,6 +43,11 @@ class COFState extends FlxState
         if (FlxG.keys.justPressed.ESCAPE)
 	{
 		FlxG.switchState(new MainMenuState());
+                FlxG.sound.music.volume = 0;
+	}
+        else if (FlxG.keys.justPressed.BACKSPACE)
+	{
+		FlxG.switchState(new MusicSelectState());
                 FlxG.sound.music.volume = 0;
 	}
     }
