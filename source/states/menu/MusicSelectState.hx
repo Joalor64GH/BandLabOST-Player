@@ -2,14 +2,13 @@ package states.menu;
 
 import util.Menu;
 import flixel.FlxG;
-import flixel.FlxState;
 import flixel.FlxSprite;
 import lime.app.Application;
 import states.menu.*;
 import substates.*;
 import states.*;
 
-class MusicSelectState extends FlxState
+class MusicSelectState extends Menu
 {
 	var bg:FlxSprite;
 
@@ -87,8 +86,6 @@ class MusicSelectState extends FlxState
 					trace('something is fucked');
 			}
 		}
-		// Open menu
-		FlxG.switchState(new Menu());
 
 		super.create();
 	}

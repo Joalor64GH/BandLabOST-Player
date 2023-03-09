@@ -3,7 +3,6 @@ package states.menu;
 import util.Menu;
 import flixel.FlxG;
 import openfl.Assets;
-import flixel.FlxState;
 import flixel.FlxSprite;
 import flixel.util.FlxColor;
 import lime.app.Application;
@@ -11,7 +10,7 @@ import states.menu.*;
 import states.*;
 import core.*;
 
-class MainMenuState extends FlxState
+class MainMenuState extends Menu
 {
 	var bg:FlxSprite;
 
@@ -67,8 +66,6 @@ class MainMenuState extends FlxState
 					trace('something is fucked');
 			}
 		}
-		// Open menu
-		FlxG.switchState(new Menu());
 
 		super.create();
 	}
