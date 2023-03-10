@@ -57,8 +57,8 @@ class MainMenuState extends Menu
 						FlxG.switchState(new ModsState());
 					else {
 						Main.toast.create('No mods installed!', 0xFFFFFF00, 'Please add mods to be able to access this menu!');
-						Menu.stopFlash();
-						Menu.justPressedEnter = false;
+						Menu.instance.stopFlash();
+						Menu.instance.justPressedEnter = false;
 					}
 				case 3:
 				#end

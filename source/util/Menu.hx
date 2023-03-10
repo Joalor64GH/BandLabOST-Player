@@ -37,12 +37,16 @@ class Menu extends FlxSubState
 
 	var flashTimer:FlxTimer = null;
 
+	public static var instance:Menu;
+
 	// Bind callback
 	public var cb:MenuSelection->Void;
 
 	public override function create()
 	{
 		openfl.system.System.gc();
+
+		instance = this;
 
 		cb = callback.bind(_);
 
@@ -161,5 +165,10 @@ class Menu extends FlxSubState
 	{
 		final tempArray = optionsT.text.trim().split('\n');
 		return tempArray[returnOption].trim();
+	}
+
+	override function destroy(){
+		instance = null;
+		return super.destroy();
 	}
 }
