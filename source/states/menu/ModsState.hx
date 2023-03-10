@@ -80,7 +80,7 @@ class ModsState extends FlxState
 		}
 		else if (FlxG.keys.justPressed.ENTER)
 		{
-			if (!FlxG.save.data.disabledMods.contains(ModCore.trackedMods[curSelected].id))
+			if (FlxG.save.data.disabledMods != null && !FlxG.save.data.disabledMods.contains(ModCore.trackedMods[curSelected].id))
 			{
 				FlxG.save.data.disabledMods.push(ModCore.trackedMods[curSelected].id);
 				FlxG.save.flush();
