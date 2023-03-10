@@ -109,7 +109,7 @@ class ModsState extends FlxState
 		for (i in 0...iconArray.length)
 		{
 			iconArray[i].alpha = 0.6;
-			if (!FlxG.save.data.disabledMods.contains(ModCore.trackedMods[i].id))
+			if (FlxG.save.data.disabledMods != null && !FlxG.save.data.disabledMods.contains(ModCore.trackedMods[i].id))
 				iconArray[i].alpha = 1;
 		}
 
@@ -120,7 +120,7 @@ class ModsState extends FlxState
 			bullShit++;
 
 			daMods.members[i].alpha = 0.6;
-			if (!FlxG.save.data.disabledMods.contains(ModCore.trackedMods[i].id))
+			if (FlxG.save.data.disabledMods != null && !FlxG.save.data.disabledMods.contains(ModCore.trackedMods[i].id))
 				daMods.members[i].alpha = 1;
 		}
 

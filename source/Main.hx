@@ -28,7 +28,7 @@ class Main extends Sprite
 
 		ModCore.reload();
 
-		addChild(new FlxGame(0, 0, MainMenuState));
+		addChild(new FlxGame(0, 0, InitialState));
 		addChild(new FPS(10, 3, 0xFFFFFF));
 
 		toast = new ToastCore();
