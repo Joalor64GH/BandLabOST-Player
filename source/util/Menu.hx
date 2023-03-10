@@ -35,6 +35,8 @@ class Menu extends FlxSubState
 
 	var optionsT = new FlxText(0, 0, 0, "placeholder", 32, true);
 
+	var flashTimer:FlxTimer = null;
+
 	// Bind callback
 	public var cb:MenuSelection->Void;
 
@@ -131,7 +133,16 @@ class Menu extends FlxSubState
 
 	inline function flashArrow()
 	{
-		new FlxTimer().start(0.1, (timer:FlxTimer) -> {cursor.visible = !cursor.visible;}, 0);
+		if (flashTimer != null){
+			flashTimer.cancel();
+			flashTimer = null;
+		}
+		flashTimer = new FlxTimer().start(0.1, (timer:FlxTimer) -> {cursor.visible = !cursor.visible;}, 0);
+	}
+
+	inline function stopFlash(){
+		flashTimer.cancel();
+		flashTimer = null;
 	}
 
 	inline function doAction(?timer:FlxTimer)

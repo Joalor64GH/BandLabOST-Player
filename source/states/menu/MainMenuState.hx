@@ -55,9 +55,11 @@ class MainMenuState extends Menu
 				    	trace('Mod Loader');
 					if (ModCore.trackedMods != [])
 						FlxG.switchState(new ModsState());
-					else
-						FlxG.resetState();
+					else {
 						Main.toast.create('No mods installed!', 0xFFFFFF00, 'Please add mods to be able to access this menu!');
+						Menu.stopFlash();
+						Menu.justPressedEnter = false;
+					}
 				case 3:
 				#end
 					trace('Credits');
