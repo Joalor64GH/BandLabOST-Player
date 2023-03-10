@@ -368,8 +368,14 @@ class FlxG
 	 */
 	public static inline function switchState(nextState:FlxState):Void
 	{
-		if (state.switchTo(nextState))
+		if (state.switchTo(nextState) && nextState != null)
 			game._requestedState = nextState;
+		else if (!state.switchTo(nextState))
+			throw "State is not available or switchTo method returned false";
+		else if (nextState == null)
+			throw "State is null";
+		else
+			throw "Unknown state switch error occurred";
 	}
 
 	/**
