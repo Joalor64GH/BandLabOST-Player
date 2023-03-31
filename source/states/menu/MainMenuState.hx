@@ -60,8 +60,8 @@ class MainMenuState extends Menu
 						Menu.instance.stopFlash();
 						Menu.instance.justPressedEnter = false;
 					}
-				case 3:
 				#end
+				case 3:
 					trace('Credits');
 					FlxG.switchState(new CreditsState());
 				case 4:

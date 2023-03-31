@@ -51,7 +51,7 @@ class CreditsState extends FlxState
 		}
 		else
 		{
-			trace("Cannot find 'creditsList' in data directory.");
+			trace("OOPS! Could not find 'creditsList.txt'!");
 			trace("Replacing it with normal credits...");
 			initCreditlist = "Joalor64 YT:Main Programmer".trim()
 				.split('\n');
