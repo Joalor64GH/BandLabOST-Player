@@ -33,7 +33,7 @@ class MusicSelectState extends Menu
 			'Game Development', 
 			'Silver Candy',
 			'Christmas Wishes',
-		    'Universal Questioning',
+		    	'Universal Questioning',
 			'Back'
 		];
 		Menu.includeExitBtn = false;
@@ -77,7 +77,7 @@ class MusicSelectState extends Menu
 				        trace('Christmas Wishes');
                                         FlxG.switchState(new CWState());
 				case 11:
-				trace('Universal Questioning');
+					trace('Universal Questioning');
                                         FlxG.switchState(new UQState());
 				case 12:
 					trace('Back');
